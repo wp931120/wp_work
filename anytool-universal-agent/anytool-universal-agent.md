@@ -8,6 +8,8 @@ tags: ["AI Agent", "工具调用", "开源项目", "大模型"]
 
 > 大家好，我是王鹏，专注在 Agent 和大模型算法领域的一位前行者。今天给大家分享一个让我眼前一亮的开源项目——AnyTool，它可能是目前最优雅的 AI Agent 工具调用解决方案。
 
+![AnyTool 官方网站](file:///Users/wp931120/lobsterai/project/wp_work/anytool-universal-agent/anytool-official-website.png)
+
 ---
 
 ## 🎯 为什么需要 AnyTool？
@@ -23,6 +25,8 @@ AnyTool 的出现，恰好解决了这三个核心痛点。
 ---
 
 ## ⚡ 一分钟快速上手
+
+![AnyTool 主页横幅](file:///Users/wp931120/lobsterai/project/wp_work/anytool-universal-agent/anytool-hero-section.png)
 
 任何 AI Agent 都能用一行代码获得智能工具编排能力：
 
@@ -42,6 +46,8 @@ async with AnyTool() as tool_layer:
 ---
 
 ## 🔥 核心技术亮点
+
+![AnyTool 技术架构](file:///Users/wp931120/lobsterai/project/wp_work/anytool-universal-agent/anytool-github-readme.png)
 
 ### 1️⃣ 闪电般的工具检索
 
@@ -198,6 +204,8 @@ AnyTool 的设计体现了几点工程智慧：
 ---
 
 ## 🔗 项目信息
+
+![AnyTool GitHub 页面](file:///Users/wp931120/lobsterai/project/wp_work/anytool-universal-agent/anytool-github-page.png)
 
 - **GitHub**: [HKUDS/AnyTool](https://github.com/HKUDS/AnyTool)
 - **平台支持**: macOS / Linux / Windows
