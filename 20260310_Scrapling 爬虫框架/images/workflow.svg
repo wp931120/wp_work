@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2D3748;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1A202C;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="stepGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4299E1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2B6CB0;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="900" height="600" fill="#F7FAFC"/>
+
+  <!-- 标题 -->
+  <rect x="0" y="0" width="900" height="60" fill="url(#headerGrad)"/>
+  <text x="450" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white">Scrapling 工作流程</text>
+
+  <!-- 步骤 1 -->
+  <g transform="translate(100, 100)">
+    <rect x="0" y="0" width="200" height="80" rx="10" fill="url(#stepGrad)" filter="url(#shadow)"/>
+    <text x="100" y="35" text-anchor="middle" font-family="Arial" font-size="16" fill="white" font-weight="bold">1. 选择 Fetcher</text>
+    <text x="100" y="58" text-anchor="middle" font-family="Arial" font-size="12" fill="#E2E8F0">Fetcher / Stealthy / Dynamic</text>
+  </g>
+
+  <!-- 箭头 -->
+  <path d="M 300 140 L 350 140" stroke="#4A5568" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- 步骤 2 -->
+  <g transform="translate(350, 100)">
+    <rect x="0" y="0" width="200" height="80" rx="10" fill="url(#stepGrad)" filter="url(#shadow)"/>
+    <text x="100" y="35" text-anchor="middle" font-family="Arial" font-size="16" fill="white" font-weight="bold">2. 发起请求</text>
+    <text x="100" y="58" text-anchor="middle" font-family="Arial" font-size="12" fill="#E2E8F0">HTTP / 浏览器自动化</text>
+  </g>
+
+  <!-- 箭头 -->
+  <path d="M 550 140 L 600 140" stroke="#4A5568" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- 步骤 3 -->
+  <g transform="translate(600, 100)">
+    <rect x="0" y="0" width="200" height="80" rx="10" fill="#48BB78" filter="url(#shadow)"/>
+    <text x="100" y="35" text-anchor="middle" font-family="Arial" font-size="16" fill="white" font-weight="bold">3. 解析 HTML</text>
+    <text x="100" y="58" text-anchor="middle" font-family="Arial" font-size="12" fill="#E2E8F0">CSS / XPath / 自适应</text>
+  </g>
+
+  <!-- 向下的箭头 -->
+  <path d="M 700 180 L 700 230" stroke="#4A5568" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- 步骤 4 -->
+  <g transform="translate(600, 240)">
+    <rect x="0" y="0" width="200" height="80" rx="10" fill="#ED8936" filter="url(#shadow)"/>
+    <text x="100" y="35" text-anchor="middle" font-family="Arial" font-size="16" fill="white" font-weight="bold">4. 提取数据</text>
+    <text x="100" y="58" text-anchor="middle" font-family="Arial" font-size="12" fill="#E2E8F0">.get() / .getall()</text>
+  </g>
+
+  <!-- 向左的箭头 -->
+  <path d="M 600 280 L 350 280" stroke="#4A5568" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- 步骤 5 -->
+  <g transform="translate(100, 240)">
+    <rect x="0" y="0" width="200" height="80" rx="10" fill="#9F7AEA" filter="url(#shadow)"/>
+    <text x="100" y="35" text-anchor="middle" font-family="Arial" font-size="16" fill="white" font-weight="bold">5. 导出数据</text>
+    <text x="100" y="58" text-anchor="middle" font-family="Arial" font-size="12" fill="#E2E8F0">JSON / JSONL / CSV</text>
+  </g>
+
+  <!-- 中间的功能框 -->
+  <g transform="translate(250, 380)">
+    <rect x="0" y="0" width="400" height="160" rx="10" fill="#FFFFFF" stroke="#4299E1" stroke-width="2"/>
+    <text x="200" y="35" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#2D3748">核心能力</text>
+
+    <!-- 能力列表 -->
+    <g transform="translate(20, 55)">
+      <text x="0" y="20" font-family="Arial" font-size="13" fill="#4A5568">✓ 自适应元素定位</text>
+      <text x="0" y="45" font-family="Arial" font-size="13" fill="#4A5568">✓ 反爬虫绕过 (Cloudflare 等)</text>
+      <text x="0" y="70" font-family="Arial" font-size="13" fill="#4A5568">✓ 并发控制与暂停恢复</text>
+      <text x="0" y="95" font-family="Arial" font-size="13" fill="#4A5568">✓ AI 辅助爬取 (MCP Server)</text>
+    </g>
+
+    <g transform="translate(220, 55)">
+      <text x="0" y="20" font-family="Arial" font-size="13" fill="#4A5568">✓ TLS 指纹模拟</text>
+      <text x="0" y="45" font-family="Arial" font-size="13" fill="#4A5568">✓ Canvas/WebGL 处理</text>
+      <text x="0" y="70" font-family="Arial" font-size="13" fill="#4A5568">✓ 代理轮换</text>
+      <text x="0" y="95" font-family="Arial" font-size="13" fill="#4A5568">✓ 流式输出</text>
+    </g>
+  </g>
+
+  <!-- 箭头定义 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4A5568"/>
+    </marker>
+  </defs>
+</svg>

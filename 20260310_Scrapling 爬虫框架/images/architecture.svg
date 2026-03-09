@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2D3748;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1A202C;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="boxGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4299E1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2B6CB0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="coreGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#48BB78;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2F855A;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="500" fill="#F7FAFC"/>
+
+  <!-- 标题 -->
+  <rect x="0" y="0" width="800" height="60" fill="url(#headerGrad)"/>
+  <text x="400" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white">Scrapling 架构总览</text>
+
+  <!-- 用户层 -->
+  <rect x="50" y="90" width="140" height="60" rx="8" fill="url(#boxGrad)" filter="url(#shadow)"/>
+  <text x="120" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" font-weight="bold">开发者</text>
+
+  <rect x="610" y="90" width="140" height="60" rx="8" fill="#ED8936" filter="url(#shadow)"/>
+  <text x="680" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" font-weight="bold">AI 助手</text>
+
+  <!-- 箭头向下 -->
+  <line x1="120" y1="150" x2="120" y2="190" stroke="#4A5568" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="680" y1="150" x2="680" y2="190" stroke="#4A5568" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- API 层 -->
+  <rect x="40" y="200" width="220" height="70" rx="8" fill="#667EEA" filter="url(#shadow)"/>
+  <text x="150" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="white" font-weight="bold">Spider API</text>
+  <text x="150" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#E2E8F0">类 Scrapy 接口</text>
+
+  <rect x="290" y="200" width="220" height="70" rx="8" fill="#667EEA" filter="url(#shadow)"/>
+  <text x="400" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="white" font-weight="bold">Fetcher API</text>
+  <text x="400" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#E2E8F0">三种获取器</text>
+
+  <rect x="540" y="200" width="220" height="70" rx="8" fill="#667EEA" filter="url(#shadow)"/>
+  <text x="650" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="white" font-weight="bold">MCP Server</text>
+  <text x="650" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#E2E8F0">AI 集成接口</text>
+
+  <!-- 箭头向下 -->
+  <line x1="400" y1="270" x2="400" y2="310" stroke="#4A5568" stroke-width="2"/>
+
+  <!-- 核心引擎 -->
+  <rect x="200" y="320" width="400" height="80" rx="10" fill="url(#coreGrad)" filter="url(#shadow)"/>
+  <text x="400" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="white" font-weight="bold">核心解析引擎</text>
+  <text x="400" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#E2E8F0">CSS/XPath 选择器 | 自适应定位 | 智能相似度算法</text>
+
+  <!-- 箭头向下 -->
+  <line x1="400" y1="400" x2="400" y2="430" stroke="#4A5568" stroke-width="2"/>
+
+  <!-- 底层 -->
+  <rect x="100" y="440" width="180" height="50" rx="6" fill="#718096" filter="url(#shadow)"/>
+  <text x="190" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white" font-weight="bold">lxml</text>
+
+  <rect x="310" y="440" width="180" height="50" rx="6" fill="#718096" filter="url(#shadow)"/>
+  <text x="400" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white" font-weight="bold">curl_cffi</text>
+
+  <rect x="520" y="440" width="180" height="50" rx="6" fill="#718096" filter="url(#shadow)"/>
+  <text x="610" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white" font-weight="bold">Playwright</text>
+
+  <!-- 箭头定义 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4A5568"/>
+    </marker>
+  </defs>
+</svg>
