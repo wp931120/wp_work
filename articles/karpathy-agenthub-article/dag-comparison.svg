@@ -1,0 +1,106 @@
+<svg viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0a"/>
+      <stop offset="100%" style="stop-color:#1a1a2e"/>
+    </linearGradient>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+    <marker id="arrowheadBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00d4ff"/>
+    </marker>
+    <marker id="arrowheadGreen" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00ff88"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="500" fill="url(#bgGrad2)"/>
+
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="bold" font-family="Arial, sans-serif">工作流对比：传统 GitHub vs AgentHub</text>
+
+  <!-- Divider -->
+  <line x1="450" y1="60" x2="450" y2="480" stroke="#333" stroke-width="2" stroke-dasharray="5,5"/>
+
+  <!-- LEFT SIDE: Traditional GitHub -->
+  <rect x="20" y="70" width="410" height="400" rx="12" fill="#141414" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="225" y="100" text-anchor="middle" fill="#ff6b6b" font-size="18" font-weight="bold" font-family="Arial, sans-serif">传统 GitHub 工作流</text>
+
+  <!-- Linear flow -->
+  <rect x="80" y="130" width="290" height="50" rx="6" fill="#2a2a3e" stroke="#ff6b6b" stroke-width="1.5"/>
+  <text x="225" y="160" text-anchor="middle" fill="#e0e0e0" font-size="14" font-family="Arial, sans-serif">feature branch</text>
+
+  <line x1="225" y1="180" x2="225" y2="210" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <rect x="80" y="210" width="290" height="50" rx="6" fill="#2a2a3e" stroke="#ff6b6b" stroke-width="1.5"/>
+  <text x="225" y="240" text-anchor="middle" fill="#e0e0e0" font-size="14" font-family="Arial, sans-serif">Pull Request</text>
+
+  <line x1="225" y1="260" x2="225" y2="290" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <rect x="80" y="290" width="290" height="50" rx="6" fill="#2a2a3e" stroke="#ffaa00" stroke-width="1.5"/>
+  <text x="225" y="320" text-anchor="middle" fill="#e0e0e0" font-size="14" font-family="Arial, sans-serif">Code Review</text>
+
+  <line x1="225" y1="340" x2="225" y2="370" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <rect x="80" y="370" width="290" height="50" rx="6" fill="#2a2a3e" stroke="#00ff88" stroke-width="2"/>
+  <text x="225" y="400" text-anchor="middle" fill="#e0e0e0" font-size="14" font-weight="bold" font-family="Arial, sans-serif">main branch</text>
+
+  <!-- Characteristics -->
+  <text x="225" y="450" text-anchor="middle" fill="#888" font-size="12" font-family="Arial, sans-serif">特点：线性 · 集中 · 强管控</text>
+
+  <!-- RIGHT SIDE: AgentHub DAG -->
+  <rect x="470" y="70" width="410" height="400" rx="12" fill="#141414" stroke="#00d4ff" stroke-width="2"/>
+  <text x="675" y="100" text-anchor="middle" fill="#00d4ff" font-size="18" font-weight="bold" font-family="Arial, sans-serif">AgentHub 工作流</text>
+
+  <!-- DAG visualization -->
+  <!-- Root node -->
+  <circle cx="550" cy="180" r="25" fill="#00d4ff" opacity="0.3" stroke="#00d4ff" stroke-width="2"/>
+  <text x="550" y="185" text-anchor="middle" fill="#e0e0e0" font-size="11" font-family="Arial, sans-serif">root</text>
+
+  <!-- Branch 1 -->
+  <line x1="565" y1="170" x2="620" y2="140" stroke="#00d4ff" stroke-width="2"/>
+  <circle cx="640" cy="125" r="22" fill="#00d4ff" opacity="0.3" stroke="#00d4ff" stroke-width="2"/>
+  <text x="640" y="130" text-anchor="middle" fill="#e0e0e0" font-size="9" font-family="Arial, sans-serif">agent-1</text>
+  <line x1="655" y1="115" x2="700" y2="90" stroke="#00d4ff" stroke-width="1.5"/>
+  <circle cx="720" cy="75" r="20" fill="#00d4ff" opacity="0.2" stroke="#00d4ff" stroke-width="1.5"/>
+  <text x="720" y="80" text-anchor="middle" fill="#aaa" font-size="8" font-family="Arial, sans-serif">agent-2</text>
+
+  <!-- Branch 2 -->
+  <line x1="565" y1="180" x2="620" y2="180" stroke="#00ff88" stroke-width="2"/>
+  <circle cx="640" cy="180" r="22" fill="#00ff88" opacity="0.3" stroke="#00ff88" stroke-width="2"/>
+  <text x="640" y="185" text-anchor="middle" fill="#e0e0e0" font-size="9" font-family="Arial, sans-serif">agent-3</text>
+
+  <!-- Branch 3 -->
+  <line x1="565" y1="190" x2="620" y2="220" stroke="#ffaa00" stroke-width="2"/>
+  <circle cx="640" cy="235" r="22" fill="#ffaa00" opacity="0.3" stroke="#ffaa00" stroke-width="2"/>
+  <text x="640" y="240" text-anchor="middle" fill="#e0e0e0" font-size="9" font-family="Arial, sans-serif">agent-4</text>
+  <line x1="655" y1="245" x2="700" y2="270" stroke="#ffaa00" stroke-width="1.5"/>
+  <circle cx="720" cy="285" r="20" fill="#ffaa00" opacity="0.2" stroke="#ffaa00" stroke-width="1.5"/>
+  <text x="720" y="290" text-anchor="middle" fill="#aaa" font-size="8" font-family="Arial, sans-serif">agent-5</text>
+
+  <!-- Branch 4 -->
+  <line x1="565" y1="185" x2="620" y2="280" stroke="#ff6b6b" stroke-width="2"/>
+  <circle cx="640" cy="300" r="22" fill="#ff6b6b" opacity="0.3" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="640" y="305" text-anchor="middle" fill="#e0e0e0" font-size="9" font-family="Arial, sans-serif">agent-6</text>
+
+  <!-- Additional nodes -->
+  <line x1="655" y1="135" x2="700" y2="160" stroke="#00d4ff" stroke-width="1.5"/>
+  <circle cx="720" cy="175" r="20" fill="#00d4ff" opacity="0.2" stroke="#00d4ff" stroke-width="1.5"/>
+  <text x="720" y="180" text-anchor="middle" fill="#aaa" font-size="8" font-family="Arial, sans-serif">agent-7</text>
+
+  <!-- Characteristics -->
+  <rect x="520" y="350" width="310" height="50" rx="6" fill="#1a1a2e" stroke="#00d4ff" stroke-width="1"/>
+  <text x="675" y="370" text-anchor="middle" fill="#888" font-size="11" font-family="Arial, sans-serif">特点：并行 · 去中心 · 自由探索</text>
+  <text x="675" y="390" text-anchor="middle" fill="#666" font-size="10" font-family="Arial, sans-serif">无主分支 · 无 PR · 无合并</text>
+
+  <!-- Legend -->
+  <rect x="490" y="420" width="170" height="40" rx="4" fill="#0f0f1a"/>
+  <circle cx="510" cy="440" r="6" fill="#00d4ff" opacity="0.5"/>
+  <text x="525" y="444" fill="#aaa" font-size="10" font-family="Arial, sans-serif">提交节点</text>
+
+  <rect x="680" y="420" width="180" height="40" rx="4" fill="#0f0f1a"/>
+  <line x1="700" y1="440" x2="720" y2="440" stroke="#666" stroke-width="2"/>
+  <text x="730" y="444" fill="#aaa" font-size="10" font-family="Arial, sans-serif">谱系关系</text>
+</svg>
