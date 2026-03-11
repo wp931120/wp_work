@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="#f8f9fa"/>
+
+  <!-- 标题 -->
+  <text x="400" y="40" text-anchor="middle" font-size="20" font-weight="bold" fill="#333">OpenClaw 整体架构</text>
+
+  <!-- Gateway 模块 -->
+  <rect x="50" y="80" width="180" height="100" rx="10" fill="#e3f2fd" stroke="#1976d2" stroke-width="2"/>
+  <text x="140" y="110" text-anchor="middle" font-size="16" font-weight="bold" fill="#1976d2">Gateway</text>
+  <text x="140" y="135" text-anchor="middle" font-size="12" fill="#555">消息入口</text>
+  <text x="140" y="155" text-anchor="middle" font-size="12" fill="#555">Telegram/飞书/QQ</text>
+  <text x="140" y="175" text-anchor="middle" font-size="12" fill="#555">Discord/Slack</text>
+
+  <!-- Bus 模块 -->
+  <rect x="310" y="80" width="180" height="100" rx="10" fill="#fff3e0" stroke="#f57c00" stroke-width="2"/>
+  <text x="400" y="110" text-anchor="middle" font-size="16" font-weight="bold" fill="#f57c00">Message Bus</text>
+  <text x="400" y="135" text-anchor="middle" font-size="12" fill="#555">消息路由</text>
+  <text x="400" y="155" text-anchor="middle" font-size="12" fill="#555">事件分发</text>
+  <text x="400" y="175" text-anchor="middle" font-size="12" fill="#555">队列管理</text>
+
+  <!-- Agent Runtime 模块 -->
+  <rect x="570" y="80" width="180" height="100" rx="10" fill="#e8f5e9" stroke="#388e3c" stroke-width="2"/>
+  <text x="660" y="110" text-anchor="middle" font-size="16" font-weight="bold" fill="#388e3c">Agent Runtime</text>
+  <text x="660" y="135" text-anchor="middle" font-size="12" fill="#555">核心执行引擎</text>
+  <text x="660" y="155" text-anchor="middle" font-size="12" fill="#555">ReAct 循环</text>
+  <text x="660" y="175" text-anchor="middle" font-size="12" fill="#555">工具调用</text>
+
+  <!-- LLM Provider -->
+  <rect x="570" y="220" width="180" height="80" rx="10" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2"/>
+  <text x="660" y="250" text-anchor="middle" font-size="16" font-weight="bold" fill="#7b1fa2">LLM Provider</text>
+  <text x="660" y="275" text-anchor="middle" font-size="12" fill="#555">Claude/GPT/智谱</text>
+  <text x="660" y="295" text-anchor="middle" font-size="12" fill="#555">Ollama 本地模型</text>
+
+  <!-- Memory 模块 -->
+  <rect x="310" y="220" width="180" height="80" rx="10" fill="#fce4ec" stroke="#c2185b" stroke-width="2"/>
+  <text x="400" y="250" text-anchor="middle" font-size="16" font-weight="bold" fill="#c2185b">Memory System</text>
+  <text x="400" y="275" text-anchor="middle" font-size="12" fill="#555">SOUL.md (身份)</text>
+  <text x="400" y="295" text-anchor="middle" font-size="12" fill="#555">MEMORY.md (事实)</text>
+
+  <!-- Tools 模块 -->
+  <rect x="50" y="220" width="180" height="80" rx="10" fill="#e0f7fa" stroke="#0097a7" stroke-width="2"/>
+  <text x="140" y="250" text-anchor="middle" font-size="16" font-weight="bold" fill="#0097a7">Core Tools</text>
+  <text x="140" y="275" text-anchor="middle" font-size="12" fill="#555">read / write</text>
+  <text x="140" y="295" text-anchor="middle" font-size="12" fill="#555">edit / exec</text>
+
+  <!-- Skills 层 -->
+  <rect x="200" y="340" width="400" height="70" rx="10" fill="#fff9c4" stroke="#fbc02d" stroke-width="2"/>
+  <text x="400" y="370" text-anchor="middle" font-size="16" font-weight="bold" fill="#fbc02d">Skills 技能层</text>
+  <text x="400" y="395" text-anchor="middle" font-size="12" fill="#555">邮件管理 | 代码审查 | 日程安排 | 内容创作 | 股票分析</text>
+
+  <!-- 用户交互层 -->
+  <rect x="200" y="450" width="400" height="70" rx="10" fill="#cfd8dc" stroke="#546e7a" stroke-width="2"/>
+  <text x="400" y="480" text-anchor="middle" font-size="16" font-weight="bold" fill="#546e7a">用户交互</text>
+  <text x="400" y="505" text-anchor="middle" font-size="12" fill="#555">命令行 | 移动端 | Web 界面 | API</text>
+
+  <!-- 连接箭头 -->
+  <line x1="230" y1="130" x2="305" y2="130" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="490" y1="130" x2="565" y2="130" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="660" y1="180" x2="660" y2="215" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="570" y1="260" x2="495" y2="260" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="310" y1="260" x2="235" y2="260" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="400" y1="300" x2="400" y2="335" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="400" y1="410" x2="400" y2="445" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- 双向箭头 -->
+  <line x1="660" y1="180" x2="660" y2="215" stroke="#666" stroke-width="2"/>
+  <polygon points="655,195 660,180 665,195" fill="#666"/>
+  <polygon points="655,200 660,215 665,200" fill="#666"/>
+
+</svg>
