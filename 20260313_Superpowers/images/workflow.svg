@@ -1,0 +1,104 @@
+<svg width="100%" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dc2626;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-opacity="0.2"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="400" fill="#f8fafc"/>
+
+  <!-- 标题 -->
+  <text x="400" y="35" text-anchor="middle" fill="#1e293b" font-size="20" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">Superpowers 工作流管道</text>
+
+  <!-- 阶段一：Brainstorming -->
+  <g transform="translate(50, 80)">
+    <rect x="0" y="0" width="150" height="100" rx="12" fill="url(#grad1)" filter="url(#shadow)"/>
+    <text x="75" y="35" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold" font-family="system-ui, sans-serif">Brainstorming</text>
+    <text x="75" y="55" text-anchor="middle" fill="#e0e7ff" font-size="11" font-family="system-ui, sans-serif">需求澄清</text>
+    <text x="75" y="75" text-anchor="middle" fill="#e0e7ff" font-size="10" font-family="system-ui, sans-serif">禁止直接写代码</text>
+  </g>
+
+  <!-- 箭头 1 -->
+  <line x1="210" y1="130" x2="260" y2="130" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 阶段二：Writing Plans -->
+  <g transform="translate(270, 80)">
+    <rect x="0" y="0" width="150" height="100" rx="12" fill="url(#grad2)" filter="url(#shadow)"/>
+    <text x="75" y="35" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold" font-family="system-ui, sans-serif">Writing Plans</text>
+    <text x="75" y="55" text-anchor="middle" fill="#d1fae5" font-size="11" font-family="system-ui, sans-serif">编写实施计划</text>
+    <text x="75" y="75" text-anchor="middle" fill="#d1fae5" font-size="10" font-family="system-ui, sans-serif">2-5分钟粒度任务</text>
+  </g>
+
+  <!-- 箭头 2 -->
+  <line x1="430" y1="130" x2="480" y2="130" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 阶段三：Subagent Development -->
+  <g transform="translate(490, 80)">
+    <rect x="0" y="0" width="150" height="100" rx="12" fill="url(#grad3)" filter="url(#shadow)"/>
+    <text x="75" y="35" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold" font-family="system-ui, sans-serif">Subagent</text>
+    <text x="75" y="55" text-anchor="middle" fill="#fef3c7" font-size="11" font-family="system-ui, sans-serif">子代理执行</text>
+    <text x="75" y="75" text-anchor="middle" fill="#fef3c7" font-size="10" font-family="system-ui, sans-serif">上下文隔离 + Review</text>
+  </g>
+
+  <!-- 箭头 3 -->
+  <line x1="650" y1="130" x2="700" y2="130" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 阶段四：TDD -->
+  <g transform="translate(710, 80)">
+    <rect x="0" y="0" width="70" height="100" rx="12" fill="url(#grad4)" filter="url(#shadow)"/>
+    <text x="35" y="40" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold" font-family="system-ui, sans-serif">TDD</text>
+    <text x="35" y="60" text-anchor="middle" fill="#fecaca" font-size="9" font-family="system-ui, sans-serif">RED</text>
+    <text x="35" y="75" text-anchor="middle" fill="#fecaca" font-size="9" font-family="system-ui, sans-serif">GREEN</text>
+    <text x="35" y="90" text-anchor="middle" fill="#fecaca" font-size="9" font-family="system-ui, sans-serif">REFACTOR</text>
+  </g>
+
+  <!-- 底部核心原则 -->
+  <g transform="translate(50, 230)">
+    <rect x="0" y="0" width="700" height="130" rx="12" fill="#1e293b" filter="url(#shadow)"/>
+    <text x="350" y="30" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold" font-family="system-ui, sans-serif">三大铁律</text>
+
+    <!-- 原则 1 -->
+    <g transform="translate(30, 50)">
+      <circle cx="15" cy="15" r="15" fill="#6366f1"/>
+      <text x="15" y="20" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+      <text x="45" y="20" fill="#e2e8f0" font-size="12" font-family="system-ui, sans-serif">设计确认前禁止写代码</text>
+    </g>
+
+    <!-- 原则 2 -->
+    <g transform="translate(260, 50)">
+      <circle cx="15" cy="15" r="15" fill="#10b981"/>
+      <text x="15" y="20" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold" font-family="system-ui, sans-serif">2</text>
+      <text x="45" y="20" fill="#e2e8f0" font-size="12" font-family="system-ui, sans-serif">测试先行，无测试不代码</text>
+    </g>
+
+    <!-- 原则 3 -->
+    <g transform="translate(500, 50)">
+      <circle cx="15" cy="15" r="15" fill="#f59e0b"/>
+      <text x="15" y="20" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold" font-family="system-ui, sans-serif">3</text>
+      <text x="45" y="20" fill="#e2e8f0" font-size="12" font-family="system-ui, sans-serif">根因调查先于修复</text>
+    </g>
+
+    <!-- 底部说明 -->
+    <text x="350" y="110" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="system-ui, sans-serif">系统性优于即兴猜测 · 证据优于声明 · 复杂度降低</text>
+  </g>
+</svg>
