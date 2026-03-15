@@ -1,0 +1,119 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cardGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e94560;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#e94560;stop-opacity:0.05" />
+    </linearGradient>
+    <linearGradient id="cardGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f3460;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#0f3460;stop-opacity:0.1" />
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bgGradient)"/>
+
+  <!-- Title -->
+  <text x="400" y="50" text-anchor="middle" fill="#ffffff" font-size="24" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">gstack 8 种认知模式</text>
+  <text x="400" y="75" text-anchor="middle" fill="#a0a0a0" font-size="14" font-family="system-ui, -apple-system, sans-serif">把 Claude Code 从"通用助手"变成"专家团队"</text>
+
+  <!-- Mode Cards - Row 1 -->
+  <g transform="translate(40, 100)">
+    <!-- Card 1: plan-ceo-review -->
+    <rect x="0" y="0" width="170" height="110" rx="12" fill="url(#cardGradient1)" stroke="#e94560" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="85" y="30" text-anchor="middle" fill="#e94560" font-size="18" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">🎯</text>
+    <text x="85" y="52" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">/plan-ceo-review</text>
+    <text x="85" y="72" text-anchor="middle" fill="#b0b0b0" font-size="11" font-family="system-ui, -apple-system, sans-serif">创始人/CEO</text>
+    <text x="85" y="92" text-anchor="middle" fill="#a0a0a0" font-size="10" font-family="system-ui, -apple-system, sans-serif">重新定义问题</text>
+
+    <!-- Card 2: plan-eng-review -->
+    <rect x="190" y="0" width="170" height="110" rx="12" fill="url(#cardGradient2)" stroke="#4a9eff" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="85" y="30" text-anchor="middle" fill="#4a9eff" font-size="18" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">⚙️</text>
+    <text x="85" y="52" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">/plan-eng-review</text>
+    <text x="85" y="72" text-anchor="middle" fill="#b0b0b0" font-size="11" font-family="system-ui, -apple-system, sans-serif">技术负责人</text>
+    <text x="85" y="92" text-anchor="middle" fill="#a0a0a0" font-size="10" font-family="system-ui, -apple-system, sans-serif">架构设计</text>
+
+    <!-- Card 3: review -->
+    <rect x="380" y="0" width="170" height="110" rx="12" fill="url(#cardGradient1)" stroke="#ff9f43" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="85" y="30" text-anchor="middle" fill="#ff9f43" font-size="18" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">🔍</text>
+    <text x="85" y="52" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">/review</text>
+    <text x="85" y="72" text-anchor="middle" fill="#b0b0b0" font-size="11" font-family="system-ui, -apple-system, sans-serif">偏执工程师</text>
+    <text x="85" y="92" text-anchor="middle" fill="#a0a0a0" font-size="10" font-family="system-ui, -apple-system, sans-serif">找生产级 bug</text>
+
+    <!-- Card 4: ship -->
+    <rect x="570" y="0" width="170" height="110" rx="12" fill="url(#cardGradient2)" stroke="#26d07c" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="85" y="30" text-anchor="middle" fill="#26d07c" font-size="18" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">🚀</text>
+    <text x="85" y="52" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">/ship</text>
+    <text x="85" y="72" text-anchor="middle" fill="#b0b0b0" font-size="11" font-family="system-ui, -apple-system, sans-serif">发布工程师</text>
+    <text x="85" y="92" text-anchor="middle" fill="#a0a0a0" font-size="10" font-family="system-ui, -apple-system, sans-serif">自动化发布</text>
+  </g>
+
+  <!-- Mode Cards - Row 2 -->
+  <g transform="translate(40, 230)">
+    <!-- Card 5: browse -->
+    <rect x="0" y="0" width="170" height="110" rx="12" fill="url(#cardGradient1)" stroke="#a55eea" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="85" y="30" text-anchor="middle" fill="#a55eea" font-size="18" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">🌐</text>
+    <text x="85" y="52" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">/browse</text>
+    <text x="85" y="72" text-anchor="middle" fill="#b0b0b0" font-size="11" font-family="system-ui, -apple-system, sans-serif">QA 工程师</text>
+    <text x="85" y="92" text-anchor="middle" fill="#a0a0a0" font-size="10" font-family="system-ui, -apple-system, sans-serif">60 秒完成测试</text>
+
+    <!-- Card 6: qa -->
+    <rect x="190" y="0" width="170" height="110" rx="12" fill="url(#cardGradient2)" stroke="#26d07c" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="85" y="30" text-anchor="middle" fill="#26d07c" font-size="18" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">✅</text>
+    <text x="85" y="52" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">/qa</text>
+    <text x="85" y="72" text-anchor="middle" fill="#b0b0b0" font-size="11" font-family="system-ui, -apple-system, sans-serif">QA 负责人</text>
+    <text x="85" y="92" text-anchor="middle" fill="#a0a0a0" font-size="10" font-family="system-ui, -apple-system, sans-serif">系统级验证</text>
+
+    <!-- Card 7: setup-browser-cookies -->
+    <rect x="380" y="0" width="170" height="110" rx="12" fill="url(#cardGradient1)" stroke="#fd9644" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="85" y="30" text-anchor="middle" fill="#fd9644" font-size="18" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">🍪</text>
+    <text x="85" y="52" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">/setup-browser-cookies</text>
+    <text x="85" y="72" text-anchor="middle" fill="#b0b0b0" font-size="11" font-family="system-ui, -apple-system, sans-serif">会话管理</text>
+    <text x="85" y="92" text-anchor="middle" fill="#a0a0a0" font-size="10" font-family="system-ui, -apple-system, sans-serif">导入真实 cookies</text>
+
+    <!-- Card 8: retro -->
+    <rect x="570" y="0" width="170" height="110" rx="12" fill="url(#cardGradient2)" stroke="#4a9eff" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="85" y="30" text-anchor="middle" fill="#4a9eff" font-size="18" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">📊</text>
+    <text x="85" y="52" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">/retro</text>
+    <text x="85" y="72" text-anchor="middle" fill="#b0b0b0" font-size="11" font-family="system-ui, -apple-system, sans-serif">工程经理</text>
+    <text x="85" y="92" text-anchor="middle" fill="#a0a0a0" font-size="10" font-family="system-ui, -apple-system, sans-serif">团队周报</text>
+  </g>
+
+  <!-- Flow Arrow -->
+  <g transform="translate(280, 370)">
+    <path d="M 0 0 L 0 30" stroke="#505050" stroke-width="2" stroke-dasharray="5,5" fill="none"/>
+    <polygon points="0,40 -6,30 6,30" fill="#505050"/>
+  </g>
+
+  <!-- Bottom Section -->
+  <g transform="translate(200, 430)">
+    <rect x="0" y="0" width="400" height="140" rx="16" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    <text x="200" y="30" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">认知模式切换</text>
+    <text x="200" y="55" text-anchor="middle" fill="#a0a0a0" font-size="13" font-family="system-ui, -apple-system, sans-serif">显式告诉模型"现在需要你用什么脑子"</text>
+
+    <!-- Workflow -->
+    <g transform="translate(30, 70)">
+      <text x="0" y="0" fill="#e94560" font-size="12" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">规划</text>
+      <text x="35" y="0" fill="#505050" font-size="12">→</text>
+      <text x="55" y="0" fill="#4a9eff" font-size="12" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">工程</text>
+      <text x="90" y="0" fill="#505050" font-size="12">→</text>
+      <text x="110" y="0" fill="#ff9f43" font-size="12" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">审查</text>
+      <text x="145" y="0" fill="#505050" font-size="12">→</text>
+      <text x="165" y="0" fill="#26d07c" font-size="12" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">发布</text>
+      <text x="200" y="0" fill="#505050" font-size="12">→</text>
+      <text x="220" y="0" fill="#a55eea" font-size="12" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">测试</text>
+
+      <text x="170" y="25" text-anchor="middle" fill="#707070" font-size="11" font-family="system-ui, -apple-system, sans-serif">一个人，十个并行 agent</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="400" y="590" text-anchor="middle" fill="#505050" font-size="11" font-family="system-ui, -apple-system, sans-serif">gstack by Garry Tan · YC President &amp; CEO</text>
+</svg>
