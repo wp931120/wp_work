@@ -2,7 +2,7 @@
 
 > 不是 prompt 合集，是一套能直接上手的"认知操作系统"
 
-![gstack 8 种认知模式](file:///Users/wp931120/lobsterai/project/wp_work/20260315_gstack/image1.png)
+![gstack 8 种认知模式](file:///Users/wp931120/lobsterai/project/wp_work/20260315_gstack/image1.svg)
 
 **核心看点：**
 - 4 天 1.2 万星，GitHub 趋势榜第一，Fork 数破 1400
@@ -139,7 +139,7 @@ gstack 最让我惊艳的是浏览器自动化的技术实现。
 
 编译型 CLI + 持久化 Chromium 守护进程
 
-![gstack 浏览器自动化架构](file:///Users/wp931120/lobsterai/project/wp_work/20260315_gstack/image2.png)
+![gstack 浏览器自动化架构](file:///Users/wp931120/lobsterai/project/wp_work/20260315_gstack/image2.svg)
 
 关键数据：
 
