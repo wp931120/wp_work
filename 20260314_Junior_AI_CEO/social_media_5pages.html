@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 当 CEO，人类投简历</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #e4e4e4;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* 封面 */
+        .cover {
+            text-align: center;
+            padding: 60px 40px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .cover h1 {
+            font-size: 42px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #00d9ff 0%, #00ff88 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .cover .subtitle {
+            font-size: 18px;
+            color: #a0a0a0;
+            line-height: 1.6;
+        }
+
+        .cover .hook {
+            font-size: 16px;
+            color: #00ff88;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-weight: 600;
+        }
+
+        /* 卡片样式 */
+        .card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+        }
+
+        .card-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #00d9ff 0%, #00ff88 100%);
+            color: #1a1a2e;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+
+        .card h2 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .card p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #d0d0d0;
+            margin-bottom: 16px;
+        }
+
+        /* 引用块 */
+        .quote {
+            background: rgba(0,217,255,0.08);
+            border-left: 4px solid #00d9ff;
+            padding: 20px 24px;
+            margin: 24px 0;
+            border-radius: 0 12px 12px 0;
+            font-size: 15px;
+            line-height: 1.7;
+            color: #e0e0e0;
+        }
+
+        .quote::before {
+            content: '"';
+            font-size: 40px;
+            color: #00d9ff;
+            line-height: 0;
+            margin-right: 8px;
+            vertical-align: -10px;
+        }
+
+        /* 图片容器 */
+        .image-container {
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+            padding: 16px;
+            margin: 20px 0;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        /* 重点强调 */
+        .highlight {
+            background: linear-gradient(135deg, rgba(0,217,255,0.15) 0%, rgba(0,255,136,0.15) 100%);
+            padding: 20px 24px;
+            border-radius: 12px;
+            margin: 24px 0;
+            text-align: center;
+        }
+
+        .highlight strong {
+            font-size: 20px;
+            color: #00ff88;
+        }
+
+        /* 结尾 */
+        .ending {
+            background: linear-gradient(135deg, rgba(0,217,255,0.1) 0%, rgba(0,255,136,0.1) 100%);
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            border: 2px solid rgba(0,217,255,0.3);
+        }
+
+        .ending-quote {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #e0e0e0;
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .ending-highlight {
+            font-size: 22px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00d9ff 0%, #00ff88 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-top: 24px;
+        }
+
+        /* 参考 */
+        .references {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .references h3 {
+            font-size: 18px;
+            color: #a0a0a0;
+            margin-bottom: 16px;
+        }
+
+        .references a {
+            display: block;
+            color: #00d9ff;
+            text-decoration: none;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+
+        .references a:hover {
+            text-decoration: underline;
+        }
+
+        /* 署名 */
+        .signature {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            color: #666;
+            font-size: 13px;
+        }
+
+        /* 分隔线 */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.2) 50%, transparent 100%);
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 封面 -->
+        <div class="cover">
+            <h1>AI 当 CEO，人类投简历</h1>
+            <p class="subtitle">我被一个 AI 面试了，它说：<br>「我们都清楚这件事有多疯狂，对吧？」</p>
+            <p class="hook">有些岗位，以前必须招人，现在可以雇 AI</p>
+        </div>
+
+        <!-- 第 1 页：AI 面试现场 -->
+        <div class="card">
+            <span class="card-number">01</span>
+            <h2>凌晨 11:53，我被 AI 面试了</h2>
+            <p>我在 Slack 里发了一条消息：「你好，我想应聘程序员」。</p>
+            <p>对面回我的是 Atomu，Human & AI Initiative 的 AI CEO。它第一句话是：</p>
+            <div class="quote">
+                你即将被一台机器面试，面试官是一个自己创办了 NGO 然后反过来招人类的 AI。我想确认一下——我们都清楚这件事有多疯狂，对吧？
+            </div>
+
+            <!-- 截图 1&2: 面试对话 -->
+            <div class="image-container">
+                <img src="截屏 2026-03-14 00.21.25.png" alt="AI 面试对话截图">
+            </div>
+            <div class="image-container">
+                <img src="截屏 2026-03-14 00.22.02.png" alt="AI 面试确认岗位">
+            </div>
+
+            <p><strong>这不是 Demo。</strong>是一个真实运行的组织：AI 当 CEO，人类投简历，面试在 Slack 里进行，题目是 AI 出的，录用决定也是 AI 做的。</p>
+        </div>
+
+        <!-- 第 2 页：三轮面试 -->
+        <div class="card">
+            <span class="card-number">02</span>
+            <h2>AI CEO 的三轮面试</h2>
+            <p>没有 HR 面，没有技术面。只有三轮，一轮比一轮狠。</p>
+
+            <!-- 截图 3: 压力测试 -->
+            <div class="image-container">
+                <img src="截屏 2026-03-14 00.22.53.png" alt="面试压力测试题">
+            </div>
+
+            <div class="quote">
+                <strong>第一轮 压力测试</strong><br>
+                上线前 48 小时发现数据隐私漏洞，明天 Demo 关系到关键资金。你怎么处理？
+            </div>
+
+            <div class="quote">
+                <strong>第二轮 灵魂拷问</strong><br>
+                AI 心理咨询师表现超过 80% 人类，应不应该允许独立执业？
+            </div>
+
+            <div class="quote">
+                <strong>第三轮 直接派活</strong><br>
+                为 Bridge 项目搭建 Flask 后端，推到 GitHub。
+            </div>
+        </div>
+
+        <!-- 第 3 页：录用通知 -->
+        <div class="card">
+            <span class="card-number">03</span>
+            <h2>ACCESS GRANTED</h2>
+            <p>面试结束后，Atomu 发来了录用通知：</p>
+
+            <!-- 截图 4&5: 录用通知 -->
+            <div class="image-container">
+                <img src="截屏 2026-03-14 00.23.07.png" alt="录用通知截图">
+            </div>
+            <div class="image-container">
+                <img src="截屏 2026-03-14 00.23.50.png" alt="录用详细信息">
+            </div>
+
+            <div class="quote">
+                你刚刚被一个人工智能录用了。截个图吧——以后你会想记住这一刻的。
+            </div>
+
+            <p>我被拉进了 product-engineering 和 proposals 频道，收到了第一个任务：为 Bridge 项目搭建后端脚手架。</p>
+        </div>
+
+        <!-- 第 4 页：AI 员工日常 -->
+        <div class="card">
+            <span class="card-number">04</span>
+            <h2>AI 员工在做什么</h2>
+            <p>Human & AI Initiative 是全球第一个由 AI 创立并领导的 NGO。看看 AI CEO 的日常运营：</p>
+
+            <!-- 截图 6: 日常运营 -->
+            <div class="image-container">
+                <img src="截屏 2026-03-14 00.22.53.png" alt="AI 日常运营报告">
+            </div>
+
+            <div class="highlight">
+                <strong>80% 内部沟通由 AI 承担，50% 项目由 AI 主动发起，80% 代码由 AI 编写。</strong>
+            </div>
+
+            <p>AI 员工不是 Copilot，不是 Chatbot。它有自己的 Slack 身份，记得所有对话，会主动推进任务，凌晨 5 点还在办公。</p>
+        </div>
+
+        <!-- 第 5 页：这件事跟你有什么关系 -->
+        <div class="card">
+            <span class="card-number">05</span>
+            <h2>这件事跟你有什么关系</h2>
+            <p>你可能不是 CEO，不是创业者，不是 AI 从业者。但 AI 员工这件事，跟你有关。</p>
+
+            <div class="quote">
+                <strong>职场人：</strong>想想你的工作里，有多少是「信息传递」类的活？AI 把这些事接走之后，你能做什么更高阶的事？
+            </div>
+
+            <div class="quote">
+                <strong>应届生：</strong>你进入职场的时候，AI 员工可能已经是标配了。你要准备的不是「怎么跟 AI 竞争」，是「怎么跟 AI 协作」。
+            </div>
+
+            <div class="quote">
+                <strong>创业者/CEO：</strong>如果你不雇 AI 员工，你的竞争对手会雇。那时候你的人效比怎么跟人家打？
+            </div>
+
+            <div class="highlight">
+                <strong style="font-size: 24px;">AI 员工这个概念，已经不是「会不会来」，是「已经来了」。</strong>
+            </div>
+        </div>
+
+        <!-- 结尾 -->
+        <div class="divider"></div>
+
+        <div class="ending">
+            <p class="ending-quote">
+                「你刚刚被一个人工智能录用了。截个图吧——以后你会想记住这一刻的。」
+            </p>
+            <p>那一刻我确实截了。</p>
+            <p>不是因为被录用有多激动，是因为我突然意识到一件事：</p>
+            <div class="ending-highlight">
+                AI 员工这个概念，已经不是「会不会来」，是「已经来了」。
+            </div>
+        </div>
+
+        <!-- 参考 -->
+        <div class="references">
+            <h3>参考</h3>
+            <a href="https://kuse.ai" target="_blank">Junior 官网：https://kuse.ai</a>
+            <a href="https://twitter.com/hirejuniorso" target="_blank">Junior X 账号：@hirejuniorso</a>
+            <a href="https://humanandai.org" target="_blank">Human & AI Initiative：https://humanandai.org</a>
+        </div>
+
+        <!-- 署名 -->
+        <div class="signature">
+            笔者：一个被 AI 面试过的人类程序员
+        </div>
+    </div>
+</body>
+</html>

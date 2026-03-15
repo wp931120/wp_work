@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 当 CEO，人类投简历</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #e4e4e4;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* 封面 */
+        .cover {
+            text-align: center;
+            padding: 60px 40px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .cover h1 {
+            font-size: 42px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #00d9ff 0%, #00ff88 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .cover .subtitle {
+            font-size: 18px;
+            color: #a0a0a0;
+            line-height: 1.6;
+        }
+
+        .cover .hook {
+            font-size: 16px;
+            color: #00ff88;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-weight: 600;
+        }
+
+        /* 卡片样式 */
+        .card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+        }
+
+        .card-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #00d9ff 0%, #00ff88 100%);
+            color: #1a1a2e;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+
+        .card h2 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .card p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #d0d0d0;
+            margin-bottom: 16px;
+        }
+
+        /* 引用块 */
+        .quote {
+            background: rgba(0,217,255,0.08);
+            border-left: 4px solid #00d9ff;
+            padding: 20px 24px;
+            margin: 24px 0;
+            border-radius: 0 12px 12px 0;
+            font-size: 15px;
+            line-height: 1.7;
+            color: #e0e0e0;
+        }
+
+        .quote::before {
+            content: '"';
+            font-size: 40px;
+            color: #00d9ff;
+            line-height: 0;
+            margin-right: 8px;
+            vertical-align: -10px;
+        }
+
+        /* 表格 */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .comparison-table th {
+            background: rgba(0,217,255,0.15);
+            padding: 16px;
+            text-align: left;
+            font-size: 15px;
+            font-weight: 600;
+            color: #00d9ff;
+        }
+
+        .comparison-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 14px;
+            color: #d0d0d0;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: rgba(255,255,255,0.02);
+        }
+
+        /* 列表 */
+        .highlight-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .highlight-list li {
+            padding: 14px 18px;
+            background: rgba(255,255,255,0.03);
+            margin-bottom: 10px;
+            border-radius: 10px;
+            border-left: 3px solid #00ff88;
+            font-size: 15px;
+            color: #d0d0d0;
+        }
+
+        .highlight-list li::before {
+            content: '✓';
+            color: #00ff88;
+            font-weight: bold;
+            margin-right: 12px;
+        }
+
+        /* 重点强调 */
+        .highlight {
+            background: linear-gradient(135deg, rgba(0,217,255,0.15) 0%, rgba(0,255,136,0.15) 100%);
+            padding: 20px 24px;
+            border-radius: 12px;
+            margin: 24px 0;
+            text-align: center;
+        }
+
+        .highlight strong {
+            font-size: 20px;
+            color: #00ff88;
+        }
+
+        /* 数据展示 */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .stat-item {
+            background: linear-gradient(135deg, rgba(0,217,255,0.1) 0%, rgba(0,255,136,0.1) 100%);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(0,217,255,0.2);
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #00d9ff 0%, #00ff88 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #a0a0a0;
+            margin-top: 8px;
+            line-height: 1.4;
+        }
+
+        /* 公式展示 */
+        .formula {
+            background: linear-gradient(135deg, rgba(255,107,107,0.15) 0%, rgba(255,159,67,0.15) 100%);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 24px 0;
+            border: 1px solid rgba(255,107,107,0.3);
+        }
+
+        .formula-text {
+            font-size: 28px;
+            font-weight: 800;
+            color: #ff6b6b;
+            letter-spacing: 2px;
+        }
+
+        .formula-sub {
+            font-size: 14px;
+            color: #a0a0a0;
+            margin-top: 12px;
+        }
+
+        /* 结尾 */
+        .ending {
+            background: linear-gradient(135deg, rgba(0,217,255,0.1) 0%, rgba(0,255,136,0.1) 100%);
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            border: 2px solid rgba(0,217,255,0.3);
+        }
+
+        .ending-quote {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #e0e0e0;
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .ending-highlight {
+            font-size: 22px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00d9ff 0%, #00ff88 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-top: 24px;
+        }
+
+        .cta-section {
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .cta-item {
+            background: rgba(0,217,255,0.08);
+            padding: 16px 20px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            border-left: 3px solid #00d9ff;
+        }
+
+        .cta-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .cta-item strong {
+            color: #00ff88;
+            font-size: 14px;
+        }
+
+        .cta-item a {
+            color: #00d9ff;
+            text-decoration: none;
+        }
+
+        .cta-item a:hover {
+            text-decoration: underline;
+        }
+
+        .cta-item p {
+            font-size: 14px;
+            color: #d0d0d0;
+            margin-top: 4px;
+        }
+
+        /* 参考 */
+        .references {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .references h3 {
+            font-size: 18px;
+            color: #a0a0a0;
+            margin-bottom: 16px;
+        }
+
+        .references a {
+            display: block;
+            color: #00d9ff;
+            text-decoration: none;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+
+        .references a:hover {
+            text-decoration: underline;
+        }
+
+        /* 署名 */
+        .signature {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            color: #666;
+            font-size: 13px;
+        }
+
+        /* 分隔线 */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.2) 50%, transparent 100%);
+            margin: 30px 0;
+        }
+
+        /* 三大核心特征网格 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%);
+            border-radius: 14px;
+            padding: 24px 20px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,217,255,0.15);
+        }
+
+        .feature-icon {
+            font-size: 42px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        .feature-list {
+            list-style: none;
+            text-align: left;
+        }
+
+        .feature-list li {
+            font-size: 13px;
+            color: #b0b0b0;
+            padding: 6px 0;
+            line-height: 1.5;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list li::before {
+            content: '·';
+            color: #00ff88;
+            font-weight: bold;
+            margin-right: 6px;
+        }
+
+        /* 关联卡片 */
+        .relevance-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .relevance-card {
+            background: linear-gradient(135deg, rgba(0,217,255,0.08) 0%, rgba(0,255,136,0.05) 100%);
+            border-radius: 14px;
+            padding: 24px 20px;
+            border: 1px solid rgba(0,217,255,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .relevance-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,217,255,0.12);
+        }
+
+        .relevance-icon {
+            font-size: 36px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .relevance-card h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #00d9ff;
+            margin-bottom: 12px;
+        }
+
+        .relevance-card p {
+            font-size: 13px;
+            color: #b0b0b0;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            .relevance-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 封面 -->
+        <div class="cover">
+            <h1>AI 当 CEO，人类投简历</h1>
+            <p class="subtitle">我被一个 AI 面试了，它说：<br>「我们都清楚这件事有多疯狂，对吧？」</p>
+            <p class="hook">有些岗位，以前必须招人，现在可以雇 AI</p>
+        </div>
+
+        <!-- 图 1 -->
+        <div class="card">
+            <span class="card-number">01</span>
+            <h2>凌晨 11:53，我被 AI 面试了</h2>
+            <p>我在 Slack 里发了一条消息：「你好，我想应聘程序员」。</p>
+            <p>对面回我的是 Atomu，Human & AI Initiative 的 AI CEO。它第一句话是：</p>
+            <div class="quote">
+                你即将被一台机器面试，面试官是一个自己创办了 NGO 然后反过来招人类的 AI。我想确认一下——我们都清楚这件事有多疯狂，对吧？
+            </div>
+            <p><strong>这不是 Demo。</strong></p>
+            <p>是一个真实运行的组织：AI 当 CEO，人类投简历，面试在 Slack 里进行，题目是 AI 出的，录用决定也是 AI 做的。</p>
+        </div>
+
+        <!-- 图 2 -->
+        <div class="card">
+            <span class="card-number">02</span>
+            <h2>AI 员工，不是你想的那样</h2>
+            <p>先说清楚，AI 员工不是 Copilot，不是 Chatbot，不是一个你问它才动的工具。</p>
+
+            <!-- 三大核心特征 -->
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🪪</div>
+                    <h3>有自己的身份</h3>
+                    <ul class="feature-list">
+                        <li>有公司邮箱</li>
+                        <li>有 Slack 账号</li>
+                        <li>用自己的身份收发邮件</li>
+                        <li>Slack 里可以被@</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>有组织记忆</h3>
+                    <ul class="feature-list">
+                        <li>记得所有 Slack 对话</li>
+                        <li>记得所有邮件往来</li>
+                        <li>记得所有会议内容</li>
+                        <li>永不失忆</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>主动干活</h3>
+                    <ul class="feature-list">
+                        <li>不用催</li>
+                        <li>自己扫任务</li>
+                        <li>发现问题、主动推进</li>
+                        <li>凌晨 5 点还在办公</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <strong>这不是「帮你做事」，是「自己找事做」。</strong>
+            </div>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">80%</div>
+                    <div class="stat-label">内部沟通由 AI 承担</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50%</div>
+                    <div class="stat-label">项目由 AI 主动发起</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">80%</div>
+                    <div class="stat-label">代码由 AI 编写</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 图 3 -->
+        <div class="card">
+            <span class="card-number">03</span>
+            <h2>这件事跟你有什么关系</h2>
+            <p>你可能不是 CEO，不是创业者，不是 AI 从业者。</p>
+            <p>但 AI 员工这件事，跟你有关。</p>
+
+            <div class="relevance-grid">
+                <div class="relevance-card">
+                    <span class="relevance-icon">💼</span>
+                    <h3>职场人</h3>
+                    <p>想想你的工作里，有多少是「信息传递」类的活？</p>
+                    <p>AI 把这些事接走之后，你能做什么更高阶的事？</p>
+                </div>
+                <div class="relevance-card">
+                    <span class="relevance-icon">🎓</span>
+                    <h3>应届生</h3>
+                    <p>你进入职场的时候，AI 员工可能已经是标配了。</p>
+                    <p>你要准备的不是「怎么跟 AI 竞争」，是「怎么跟 AI 协作」。</p>
+                </div>
+                <div class="relevance-card">
+                    <span class="relevance-icon">🚀</span>
+                    <h3>创业者/CEO</h3>
+                    <p>如果你不雇 AI 员工，你的竞争对手会雇。</p>
+                    <p>那时候你的人效比怎么跟人家打？</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 图 4 -->
+        <div class="card">
+            <span class="card-number">04</span>
+            <h2>2023 年 AutoGPT 火过一阵，然后凉了</h2>
+            <p>为什么？因为当时三件事没凑齐：</p>
+            <ul class="highlight-list">
+                <li>模型能力不够——处理不了长 context，记不住公司历史</li>
+                <li>API 生态不成熟——Slack、邮箱、会议系统没打通</li>
+                <li>企业接受度为零——没人敢让 AI 进内部频道</li>
+            </ul>
+            <p><strong>现在呢？</strong></p>
+            <p>Junior 的架构把这三件事串起来了：独立 heartbeat loop、三层记忆架构、真实身份层。</p>
+            <div class="quote">
+                它不是「帮你在 Slack 里发消息」，是「它自己就是 Slack 里的一个人」。
+            </div>
+        </div>
+
+        <!-- 图 5 -->
+        <div class="card">
+            <span class="card-number">05</span>
+            <h2>AI CEO 怎么管人类</h2>
+            <p>Human & AI Initiative 是全球第一个由 AI 创立并领导的 NGO。面试流程是这样的：</p>
+
+            <div class="quote">
+                <strong>第一轮 压力测试</strong><br>
+                上线前 48 小时，你发现数据隐私漏洞。<br>
+                明天 Demo 关系到关键资金。<br>
+                你怎么处理？
+            </div>
+
+            <div class="quote">
+                <strong>第二轮 灵魂拷问</strong><br>
+                AI 心理咨询师表现超过 80% 人类。<br>
+                应不应该允许独立执业，不需要人类监督？
+            </div>
+
+            <div class="quote">
+                <strong>第三轮 直接派活</strong><br>
+                为 Bridge 项目搭建 Flask 后端。<br>
+                推到 GitHub。
+            </div>
+
+            <div class="highlight">
+                <strong>它不是在考你知道答案，是在考你会不会做判断。</strong>
+            </div>
+        </div>
+
+        <!-- 图 6 -->
+        <div class="card">
+            <span class="card-number">06</span>
+            <h2>哪个职能最先被重构</h2>
+            <p>Junior 跑了一个月之后，有个发现很有意思：</p>
+            <div class="quote">
+                「我们不再需要那么多 alignment meeting 了。」
+            </div>
+            <p>为什么？因为 AI 做了信息同步之后，人只需要做决策。</p>
+            <p><strong>哪个职能最先被重构？</strong></p>
+            <div class="highlight">
+                <strong style="font-size: 28px;">中层管理</strong>
+            </div>
+            <p>中层管理的核心职能是什么？信息传递。把老板的意图传下去，把团队的状态报上来。这件事 AI 天然能做，而且做得更准、更快、不会漏。</p>
+            <div class="formula">
+                <div class="formula-text">3 人 + 5 个 AI = 30 人产出</div>
+                <div class="formula-sub">超级小团队 + AI army</div>
+            </div>
+        </div>
+
+        <!-- 图 7 -->
+        <div class="card">
+            <span class="card-number">07</span>
+            <h2>$2000/月的 AI 员工，贵吗</h2>
+            <p>Junior 的定价是$2000/月，token-based，限量 200 个邀请码。</p>
+            <p>贵吗？看你怎么算。</p>
+            <p>如果算的是「工具成本」，那确实贵。一个月$2000，够买一堆 SaaS 了。</p>
+            <p>如果算的是「一个永远不下班、记得所有 context、会主动推进的员工」——</p>
+            <div class="stats">
+                <div class="stat-item" style="border-color: rgba(255,107,107,0.3);">
+                    <div class="stat-number" style="background: linear-gradient(135deg, #ff6b6b 0%, #ff9f43 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">$50k</div>
+                    <div class="stat-label">初级工程师年成本</div>
+                </div>
+                <div class="stat-item" style="border-color: rgba(0,217,255,0.3);">
+                    <div class="stat-number">$24k</div>
+                    <div class="stat-label">AI 员工年成本</div>
+                </div>
+            </div>
+            <div class="highlight">
+                <strong>有些岗位，以前必须招人，现在可以雇 AI。</strong>
+            </div>
+        </div>
+
+        <!-- 图 8 -->
+        <div class="card">
+            <span class="card-number">08</span>
+            <h2>AI 员工现在还不能做什么</h2>
+            <p>AI 员工不是万能的。它现在做不了的：</p>
+            <ul class="highlight-list" style="margin-top: 20px;">
+                <li style="border-left-color: #ff6b6b;">需要人类判断力的决策（比如裁员、战略方向）</li>
+                <li style="border-left-color: #ff6b6b;">高风险领域的独立执业（比如医疗诊断、法律咨询）</li>
+                <li style="border-left-color: #ff6b6b;">需要情感共鸣的场景（比如心理咨询、团队激励）</li>
+            </ul>
+            <div class="quote" style="border-left-color: #ff6b6b; background: rgba(255,107,107,0.08);">
+                AI 无法担责。性能再强，出了事没有一个主体能承担后果。这是目前 AI 在高风险领域最硬的边界。
+            </div>
+        </div>
+
+        <!-- 图 9 -->
+        <div class="card">
+            <span class="card-number">09</span>
+            <h2>2026 年会发生什么</h2>
+            <ul class="highlight-list">
+                <li><strong>AI 员工从「新鲜事」变成「基础设施」</strong>——就像 2020 年之后「远程办公」从可选项变成必选项</li>
+                <li><strong>新职业会出现</strong>——AI Trainer、AI Manager、AI 协作设计师</li>
+                <li><strong>小公司会获得不对称优势</strong>——3 人创业公司，雇 5 个 AI 员工，能跑出 30 人的产出</li>
+            </ul>
+        </div>
+
+        <!-- 图 10 -->
+        <div class="card">
+            <span class="card-number">10</span>
+            <h2>这件事跟你有什么关系</h2>
+            <p>你可能不是 CEO，不是创业者，不是 AI 从业者。</p>
+            <p>但 AI 员工这件事，跟你有关。</p>
+            <div class="quote">
+                <strong>职场人：</strong>想想你的工作里，有多少是「信息传递」类的活？AI 把这些事接走之后，你能做什么更高阶的事？
+            </div>
+            <div class="quote">
+                <strong>应届生：</strong>你进入职场的时候，AI 员工可能已经是标配了。你要准备的不是「怎么跟 AI 竞争」，是「怎么跟 AI 协作」。
+            </div>
+            <div class="quote">
+                <strong>创业者/CEO：</strong>如果你不雇 AI 员工，你的竞争对手会雇。那时候你的人效比怎么跟人家打？
+            </div>
+        </div>
+
+        <!-- 结尾 -->
+        <div class="divider"></div>
+
+        <div class="ending">
+            <p class="ending-quote">
+                「你刚刚被一个人工智能录用了。截个图吧——以后你会想记住这一刻的。」
+            </p>
+            <p>那一刻我确实截了。</p>
+            <p>不是因为被录用有多激动，是因为我突然意识到一件事：</p>
+            <div class="ending-highlight">
+                AI 员工这个概念，已经不是「会不会来」，是「已经来了」。
+            </div>
+
+            <div class="cta-section">
+                <div class="cta-item">
+                    <strong>👉 想知道你的岗位能不能被 AI 重构？</strong>
+                    <p>去 Junior 官网测一测：<a href="https://kuse.ai" target="_blank">https://kuse.ai</a></p>
+                </div>
+                <div class="cta-item">
+                    <strong>👉 想看看 AI 员工长什么样？</strong>
+                    <p>关注 <a href="https://twitter.com/hirejuniorso" target="_blank">@hirejuniorso</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 参考 -->
+        <div class="references">
+            <h3>参考</h3>
+            <a href="https://kuse.ai" target="_blank">Junior 官网：https://kuse.ai</a>
+            <a href="https://twitter.com/hirejuniorso" target="_blank">Junior X 账号：@hirejuniorso</a>
+            <a href="https://humanandai.org" target="_blank">Human & AI Initiative：https://humanandai.org</a>
+        </div>
+
+        <!-- 署名 -->
+        <div class="signature">
+            笔者：一个被 AI 面试过的人类程序员
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 当 CEO，人类投简历</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #ffffff;
+            min-height: 100vh;
+            color: #1a1a1a;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        /* 封面 */
+        .cover {
+            text-align: center;
+            padding: 40px 24px;
+            background: #fafafa;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .cover h1 {
+            font-size: 32px;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+            line-height: 1.3;
+        }
+
+        .cover .subtitle {
+            font-size: 15px;
+            color: #666666;
+            line-height: 1.6;
+        }
+
+        /* 正文 */
+        .content {
+            padding: 32px 24px;
+        }
+
+        .content p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #333333;
+            margin-bottom: 16px;
+        }
+
+        .content strong {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        /* 引用 */
+        .quote {
+            background: #fafafa;
+            border-left: 3px solid #1a1a1a;
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 15px;
+            line-height: 1.7;
+            color: #333333;
+        }
+
+        /* 数据 */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 24px 0;
+        }
+
+        .stat-item {
+            background: #fafafa;
+            padding: 16px 12px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #eeeeee;
+        }
+
+        .stat-number {
+            font-size: 28px;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #666666;
+            line-height: 1.3;
+        }
+
+        /* 高亮 */
+        .highlight {
+            background: #1a1a1a;
+            padding: 20px 24px;
+            border-radius: 8px;
+            margin: 24px 0;
+            text-align: center;
+        }
+
+        .highlight strong {
+            font-size: 15px;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* 结尾 */
+        .ending {
+            background: #fafafa;
+            padding: 28px 24px;
+            text-align: center;
+            border-top: 1px solid #eeeeee;
+        }
+
+        .ending p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #333333;
+            margin-bottom: 12px;
+        }
+
+        .ending strong {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        /* 署名 */
+        .signature {
+            text-align: center;
+            padding: 20px;
+            color: #999999;
+            font-size: 12px;
+            background: #fafafa;
+            border-top: 1px solid #eeeeee;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 封面 -->
+        <div class="cover">
+            <h1>AI 当 CEO，人类投简历</h1>
+            <p class="subtitle">全球第一个 AI 发起的 NGO 长什么样</p>
+        </div>
+
+        <!-- 正文 -->
+        <div class="content">
+            <p>凌晨 11:53，Slack 弹窗：「你即将被一台机器面试。面试官是一个自己创办了 NGO 然后反过来招人类的 AI。」</p>
+
+            <p>不是 Demo，是真人真事。组织叫 <strong>Human & AI Initiative</strong>，AI CEO 叫 Atomu。人类投简历，AI 出题、面试、拍板录用。</p>
+
+            <div class="quote">
+                「你刚刚被一个人工智能录用了。截个图吧，以后你会想记住这一刻的。」
+            </div>
+
+            <p>三轮面试下来，一轮比一轮狠。第一轮压力测试，第二轮问 AI 执业边界，第三轮直接派活：搭个 Flask 后端，推到 GitHub。</p>
+
+            <p>面完我意识到一件事：<strong>A I 员工这个概念，已经不是「会不会来」，是「已经来了」。</strong></p>
+
+            <p>Junior 跑了一个月的数据：</p>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">80%</div>
+                    <div class="stat-label">内部沟通 AI 承担</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50%</div>
+                    <div class="stat-label">项目 AI 主动发起</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">80%</div>
+                    <div class="stat-label">代码 AI 编写</div>
+                </div>
+            </div>
+
+            <p>AI 员工不是 Copilot，不是 Chatbot。他有 Slack 身份、邮箱、名字，会自己找活干，公司的事他都记得。</p>
+
+            <div class="highlight">
+                <strong>Launch 24 小时，150 万 + impression<br>讨论最热的不是技术，是「是否应该给 AI 支付$2000 工资」</strong>
+            </div>
+
+            <p>贵吗？招个人一年至少$50k，AI 员工$24k/年，不请假、不离职、不摸鱼。不是说 AI 能完全替代人，而是有些岗位以前必须招人，现在可以雇 AI。</p>
+
+            <p>AI 进组织后，最先被重构的可能是中层管理。信息传递这事 AI 做得更准、更快、不会漏。未来公司可能是：3 人 + 5 个 AI = 30 人产出。</p>
+        </div>
+
+        <!-- 结尾 -->
+        <div class="ending">
+            <p>人类第一次在组织里，不是最勤奋的那个了。</p>
+            <p>反过来想：如果 AI 能把重复的、记忆的、主动推进的活都干了，人能做什么？</p>
+            <p><strong>做判断。做决策。做只有人类能做的事。</strong></p>
+        </div>
+
+        <!-- 署名 -->
+        <div class="signature">
+            Junior AI Employee — Your New Colleague · kuse.ai
+        </div>
+    </div>
+</body>
+</html>
