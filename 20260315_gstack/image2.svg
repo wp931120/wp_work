@@ -1,128 +1,141 @@
-<svg viewBox="0 0 800 550" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="mcpGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#f87171;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#ef4444;stop-opacity:1" />
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
     </linearGradient>
-    <linearGradient id="gstackGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#22c55e;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#16a34a;stop-opacity:1" />
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#34d399"/>
+      <stop offset="100%" style="stop-color:#10b981"/>
     </linearGradient>
-    <linearGradient id="barGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#fca5a5;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#ef4444;stop-opacity:1" />
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f87171"/>
+      <stop offset="100%" style="stop-color:#ef4444"/>
     </linearGradient>
-    <linearGradient id="barGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#86efac;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#16a34a;stop-opacity:1" />
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#fbbf24"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
     </linearGradient>
     <filter id="shadow">
-      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1"/>
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.3"/>
     </filter>
   </defs>
 
   <!-- Background -->
-  <rect width="800" height="550" fill="#f8fafc"/>
+  <rect width="800" height="500" fill="url(#bgGrad)"/>
+
+  <!-- Grid pattern -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  </pattern>
+  <rect width="800" height="500" fill="url(#grid)"/>
 
   <!-- Title -->
-  <text x="400" y="40" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="bold" fill="#1e293b">浏览器自动化性能对比</text>
+  <text x="400" y="35" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700" fill="#f8fafc">浏览器自动化性能对比</text>
+  <text x="400" y="55" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">gstack vs MCP 工具：响应时间与上下文开销</text>
 
-  <!-- Left: Architecture Diagram -->
-  <text x="200" y="75" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#475569">gstack 架构</text>
+  <!-- Left: Architecture -->
+  <g transform="translate(30, 75)">
+    <text x="160" y="0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#94a3b8">gstack 架构</text>
 
-  <!-- gstack flow boxes -->
-  <rect x="80" y="95" width="240" height="140" rx="8" fill="#f0fdf4" stroke="#86efac" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="15" width="320" height="160" rx="10" fill="rgba(16,185,129,0.1)" stroke="#10b981" stroke-width="1.5" filter="url(#shadow)"/>
 
-  <!-- Box 1: Compile CLI -->
-  <rect x="100" y="110" width="200" height="35" rx="4" fill="url(#gstackGrad)"/>
-  <text x="200" y="132" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="white">编译型 CLI</text>
+    <!-- Flow boxes -->
+    <rect x="20" y="30" width="280" height="35" rx="6" fill="url(#greenGrad)"/>
+    <text x="160" y="53" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="white">编译型 CLI</text>
 
-  <!-- Box 2: Persistent Daemon -->
-  <rect x="100" y="155" width="200" height="35" rx="4" fill="#16a34a"/>
-  <text x="200" y="177" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="white">持久化 Chromium 守护进程</text>
+    <path d="M 160 70 L 160 85" stroke="#10b981" stroke-width="2"/>
+    <polygon points="160,90 155,80 165,80" fill="#10b981"/>
 
-  <!-- Box 3: Zero Context Overhead -->
-  <rect x="100" y="200" width="200" height="25" rx="4" fill="#dcfce7"/>
-  <text x="200" y="217" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#166534">0 tokens 上下文开销</text>
+    <rect x="20" y="95" width="280" height="35" rx="6" fill="#059669"/>
+    <text x="160" y="118" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="white">持久化 Chromium 守护进程</text>
 
-  <!-- Arrow -->
-  <path d="M 200 225 L 200 245" stroke="#16a34a" stroke-width="2" marker-end="url(#arrowhead)"/>
-  <text x="200" y="260" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#166534">↓</text>
+    <path d="M 160 135 L 160 145" stroke="#10b981" stroke-width="2"/>
+    <polygon points="160,150 155,140 165,140" fill="#10b981"/>
 
-  <!-- Result -->
-  <rect x="120" y="270" width="160" height="30" rx="4" fill="#16a34a"/>
-  <text x="200" y="290" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" fill="white">~100-200ms 响应</text>
+    <rect x="50" y="155" width="220" height="28" rx="4" fill="#d1fae5"/>
+    <text x="160" y="174" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#065f46">0 tokens 上下文开销</text>
+  </g>
 
   <!-- Right: Performance Chart -->
-  <text x="600" y="75" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#475569">首次调用耗时对比</text>
+  <g transform="translate(380, 75)">
+    <text x="185" y="0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#94a3b8">首次调用耗时对比</text>
 
-  <!-- Chart background -->
-  <rect x="470" y="95" width="260" height="140" rx="8" fill="#fef2f2" stroke="#fca5a5" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="15" width="370" height="160" rx="10" fill="rgba(239,68,68,0.1)" stroke="#ef4444" stroke-width="1.5" filter="url(#shadow)"/>
 
-  <!-- Bars -->
-  <!-- Chrome MCP: 5s -->
-  <rect x="490" y="120" width="220" height="25" rx="3" fill="url(#barGrad1)"/>
-  <text x="485" y="137" text-anchor="end" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Chrome MCP</text>
-  <text x="720" y="137" text-anchor="start" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" fill="#dc2626">~5s</text>
+    <!-- Y-axis labels -->
+    <text x="25" y="50" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Chrome MCP</text>
+    <text x="25" y="90" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Playwright</text>
+    <text x="25" y="130" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">gstack(首次)</text>
+    <text x="25" y="160" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">gstack(后续)</text>
 
-  <!-- Playwright MCP: 3s -->
-  <rect x="490" y="155" width="132" height="25" rx="3" fill="url(#barGrad1)" opacity="0.8"/>
-  <text x="485" y="172" text-anchor="end" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Playwright MCP</text>
-  <text x="630" y="172" text-anchor="start" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" fill="#dc2626">~3s</text>
+    <!-- Bars -->
+    <rect x="95" y="38" width="260" height="20" rx="3" fill="url(#redGrad)"/>
+    <text x="365" y="52" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#ef4444">~5s</text>
 
-  <!-- gstack: 3s first, then 100-200ms -->
-  <rect x="490" y="190" width="20" height="25" rx="3" fill="url(#barGrad2)"/>
-  <text x="485" y="207" text-anchor="end" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">gstack (首次)</text>
-  <text x="520" y="207" text-anchor="start" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" fill="#16a34a">~3s</text>
+    <rect x="95" y="78" width="156" height="20" rx="3" fill="url(#orangeGrad)"/>
+    <text x="260" y="92" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#f59e0b">~3s</text>
 
-  <rect x="490" y="220" width="8" height="15" rx="2" fill="url(#barGrad2)" opacity="0.8"/>
-  <text x="485" y="232" text-anchor="end" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">gstack (后续)</text>
-  <text x="505" y="232" text-anchor="start" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#16a34a">~100ms</text>
+    <rect x="95" y="118" width="156" height="20" rx="3" fill="url(#greenGrad)" opacity="0.7"/>
+    <text x="260" y="132" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#10b981">~3s</text>
 
-  <!-- Context Overhead Table -->
-  <text x="400" y="265" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#475569">每次调用上下文开销 (tokens)</text>
+    <rect x="95" y="150" width="10" height="15" rx="2" fill="url(#greenGrad)"/>
+    <text x="115" y="162" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#10b981">~100ms</text>
+  </g>
 
-  <rect x="150" y="280" width="500" height="120" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#shadow)"/>
+  <!-- Comparison Table -->
+  <g transform="translate(30, 265)">
+    <text x="370" y="0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#94a3b8">上下文开销对比 (tokens)</text>
 
-  <!-- Table Header -->
-  <rect x="150" y="280" width="500" height="30" rx="8" fill="#f1f5f9"/>
-  <rect x="150" y="302" width="500" height="1" fill="#e2e8f0"/>
-  <text x="220" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">工具</text>
-  <text x="350" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">首次调用</text>
-  <text x="480" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">后续调用</text>
-  <text x="600" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">上下文开销</text>
+    <rect x="0" y="15" width="740" height="100" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.1)" stroke-width="1" filter="url(#shadow)"/>
 
-  <!-- Row 1: Chrome MCP -->
-  <line x1="150" y1="325" x2="650" y2="325" stroke="#f1f5f9" stroke-width="1"/>
-  <text x="220" y="340" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Chrome MCP</text>
-  <text x="350" y="340" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">~5s</text>
-  <text x="480" y="340" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">~2-5s</text>
-  <text x="600" y="340" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#dc2626">~2000 tokens</text>
+    <!-- Header -->
+    <rect x="0" y="15" width="740" height="28" rx="10" fill="rgba(255,255,255,0.05)"/>
+    <text x="120" y="34" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#cbd5e1">工具</text>
+    <text x="300" y="34" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#cbd5e1">首次调用</text>
+    <text x="450" y="34" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#cbd5e1">后续调用</text>
+    <text x="620" y="34" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#cbd5e1">上下文开销</text>
 
-  <!-- Row 2: Playwright MCP -->
-  <line x1="150" y1="350" x2="650" y2="350" stroke="#f1f5f9" stroke-width="1"/>
-  <text x="220" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Playwright MCP</text>
-  <text x="350" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">~3s</text>
-  <text x="480" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">~1-3s</text>
-  <text x="600" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#dc2626">~1500 tokens</text>
+    <line x1="0" y1="43" x2="740" y2="43" stroke="rgba(255,255,255,0.1)"/>
 
-  <!-- Row 3: gstack -->
-  <rect x="150" y="375" width="500" height="25" fill="#f0fdf4"/>
-  <text x="220" y="392" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#166534">gstack browse</text>
-  <text x="350" y="392" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#166534">~3s</text>
-  <text x="480" y="392" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#166534">~100-200ms</text>
-  <text x="600" y="392" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#16a34a">0 tokens</text>
+    <!-- Row 1 -->
+    <text x="120" y="65" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Chrome MCP</text>
+    <text x="300" y="65" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">~5s</text>
+    <text x="450" y="65" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">~2-5s</text>
+    <text x="620" y="65" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#ef4444">~2000 tokens</text>
 
-  <!-- Bottom highlight -->
-  <rect x="150" y="420" width="500" height="100" rx="8" fill="#fef3c7" stroke="#fcd34d" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="400" y="445" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#92400e">20 次命令会话成本对比</text>
-  <text x="200" y="475" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#78350f">
-    <tspan x="200" dy="0">MCP 工具</tspan>
-    <tspan x="200" dy="14" font-weight="bold">3-4 万 tokens</tspan>
-  </text>
-  <text x="400" y="475" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#78350f">→</text>
-  <text x="600" y="475" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#78350f">
-    <tspan x="600" dy="0">gstack</tspan>
-    <tspan x="600" dy="14" font-weight="bold" fill="#16a34a">0 tokens</tspan>
-  </text>
+    <line x1="20" y1="73" x2="720" y2="73" stroke="rgba(255,255,255,0.05)"/>
+
+    <!-- Row 2 -->
+    <text x="120" y="90" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Playwright MCP</text>
+    <text x="300" y="90" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">~3s</text>
+    <text x="450" y="90" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">~1-3s</text>
+    <text x="620" y="90" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#f59e0b">~1500 tokens</text>
+
+    <!-- Row 3 - Highlighted -->
+    <rect x="0" y="98" width="740" height="28" rx="0" fill="rgba(16,185,129,0.1)"/>
+    <text x="120" y="117" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#10b981">gstack browse</text>
+    <text x="300" y="117" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#10b981">~3s</text>
+    <text x="450" y="117" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#10b981">~100-200ms</text>
+    <text x="620" y="117" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#10b981">0 tokens</text>
+  </g>
+
+  <!-- Cost Comparison -->
+  <rect x="30" y="390" width="740" height="80" rx="10" fill="rgba(251,191,36,0.1)" stroke="#fbbf24" stroke-width="1" filter="url(#shadow)"/>
+
+  <text x="400" y="415" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#fcd34d">20 次命令会话成本对比</text>
+
+  <g transform="translate(100, 430)">
+    <rect x="0" y="0" width="150" height="30" rx="6" fill="rgba(239,68,68,0.2)" stroke="#ef4444" stroke-width="1"/>
+    <text x="75" y="20" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#ef4444">MCP: 3-4万 tokens</text>
+  </g>
+
+  <text x="300" y="450" font-family="system-ui, sans-serif" font-size="16" fill="#64748b">→</text>
+
+  <g transform="translate(330, 430)">
+    <rect x="0" y="0" width="150" height="30" rx="6" fill="rgba(16,185,129,0.3)" stroke="#10b981" stroke-width="1.5"/>
+    <text x="75" y="20" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#10b981">gstack: 0 tokens</text>
+  </g>
+
+  <text x="530" y="450" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">节省 100% 上下文开销</text>
 </svg>
