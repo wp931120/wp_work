@@ -1,0 +1,92 @@
+<svg width="100%" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#43e97b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#38f9d7;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fa709a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fee140;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="500" fill="#0f0f23"/>
+
+  <!-- 标题 -->
+  <text x="400" y="45" text-anchor="middle" fill="#fff" font-size="24" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">Agent Skill 五种设计模式</text>
+
+  <!-- Pattern 1: Tool Wrapper -->
+  <g transform="translate(80, 90)">
+    <rect width="120" height="70" rx="12" fill="url(#grad1)" filter="url(#shadow)"/>
+    <text x="60" y="35" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold" font-family="system-ui, sans-serif">Tool Wrapper</text>
+    <text x="60" y="55" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="11" font-family="system-ui, sans-serif">即时专家</text>
+  </g>
+
+  <!-- Pattern 2: Generator -->
+  <g transform="translate(240, 90)">
+    <rect width="120" height="70" rx="12" fill="url(#grad2)" filter="url(#shadow)"/>
+    <text x="60" y="35" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold" font-family="system-ui, sans-serif">Generator</text>
+    <text x="60" y="55" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="11" font-family="system-ui, sans-serif">填空模板</text>
+  </g>
+
+  <!-- Pattern 3: Reviewer -->
+  <g transform="translate(400, 90)">
+    <rect width="120" height="70" rx="12" fill="url(#grad3)" filter="url(#shadow)"/>
+    <text x="60" y="35" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold" font-family="system-ui, sans-serif">Reviewer</text>
+    <text x="60" y="55" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="11" font-family="system-ui, sans-serif">清单打分</text>
+  </g>
+
+  <!-- Pattern 4: Inversion -->
+  <g transform="translate(560, 90)">
+    <rect width="120" height="70" rx="12" fill="url(#grad4)" filter="url(#shadow)"/>
+    <text x="60" y="35" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold" font-family="system-ui, sans-serif">Inversion</text>
+    <text x="60" y="55" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="11" font-family="system-ui, sans-serif">先问后做</text>
+  </g>
+
+  <!-- Pattern 5: Pipeline -->
+  <g transform="translate(340, 200)">
+    <rect width="120" height="70" rx="12" fill="url(#grad5)" filter="url(#shadow)"/>
+    <text x="60" y="35" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold" font-family="system-ui, sans-serif">Pipeline</text>
+    <text x="60" y="55" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="11" font-family="system-ui, sans-serif">严格流水线</text>
+  </g>
+
+  <!-- 连接线 -->
+  <path d="M140 160 Q140 180 400 200" stroke="#667eea" stroke-width="2" fill="none" opacity="0.5"/>
+  <path d="M300 160 Q300 180 400 200" stroke="#f5576c" stroke-width="2" fill="none" opacity="0.5"/>
+  <path d="M460 160 Q460 180 400 200" stroke="#00f2fe" stroke-width="2" fill="none" opacity="0.5"/>
+  <path d="M620 160 Q620 180 400 200" stroke="#38f9d7" stroke-width="2" fill="none" opacity="0.5"/>
+
+  <!-- 底部说明区域 -->
+  <rect x="60" y="300" width="680" height="170" rx="12" fill="#1a1a2e" opacity="0.8"/>
+
+  <!-- 左侧：场景 -->
+  <text x="100" y="335" fill="#9ca3af" font-size="12" font-family="system-ui, sans-serif">适用场景</text>
+  <text x="100" y="360" fill="#fff" font-size="11" font-family="system-ui, sans-serif">• Tool Wrapper → Agent 需要精通某个库</text>
+  <text x="100" y="380" fill="#fff" font-size="11" font-family="system-ui, sans-serif">• Generator → 输出固定格式的文档</text>
+  <text x="100" y="400" fill="#fff" font-size="11" font-family="system-ui, sans-serif">• Reviewer → 代码审查、质量检查</text>
+
+  <!-- 右侧：场景 -->
+  <text x="450" y="335" fill="#9ca3af" font-size="12" font-family="system-ui, sans-serif">组合建议</text>
+  <text x="450" y="360" fill="#fff" font-size="11" font-family="system-ui, sans-serif">• Pipeline + Reviewer → 自检流水线</text>
+  <text x="450" y="380" fill="#fff" font-size="11" font-family="system-ui, sans-serif">• Generator + Inversion → 先采集再生成</text>
+  <text x="450" y="400" fill="#fff" font-size="11" font-family="system-ui, sans-serif">• Tool Wrapper + Pipeline → 专家级流水线</text>
+
+  <!-- 底部标注 -->
+  <text x="400" y="450" text-anchor="middle" fill="#6b7280" font-size="10" font-family="system-ui, sans-serif">基于 ADK SkillToolset 渐进式上下文加载，组合使用不炸 Token</text>
+</svg>
