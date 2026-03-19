@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1628"/>
+      <stop offset="100%" style="stop-color:#1a2744"/>
+    </linearGradient>
+    <linearGradient id="observeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#a78bfa"/>
+    </linearGradient>
+    <linearGradient id="thinkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#60a5fa"/>
+    </linearGradient>
+    <linearGradient id="actGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#34d399"/>
+    </linearGradient>
+    <filter id="glow2">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="600" fill="url(#bgGrad2)"/>
+
+  <!-- Center circle (loop core) -->
+  <circle cx="300" cy="300" r="60" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2" opacity="0.8"/>
+  <text x="300" y="295" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Agent</text>
+  <text x="300" y="315" text-anchor="middle" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10">Loop</text>
+
+  <!-- Observe node (top) -->
+  <g transform="translate(300, 120)">
+    <circle cx="0" cy="0" r="55" fill="url(#observeGrad)" filter="url(#glow2)"/>
+    <text x="0" y="-8" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Observe</text>
+    <text x="0" y="12" text-anchor="middle" fill="#e9d5ff" font-family="system-ui, sans-serif" font-size="11">观察环境</text>
+    <!-- Icon: eye -->
+    <ellipse cx="0" cy="-28" rx="12" ry="8" fill="none" stroke="#fff" stroke-width="1.5"/>
+    <circle cx="0" cy="-28" r="4" fill="#fff"/>
+  </g>
+
+  <!-- Think node (right) -->
+  <g transform="translate(480, 300)">
+    <circle cx="0" cy="0" r="55" fill="url(#thinkGrad)" filter="url(#glow2)"/>
+    <text x="0" y="-8" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Think</text>
+    <text x="0" y="12" text-anchor="middle" fill="#bfdbfe" font-family="system-ui, sans-serif" font-size="11">思考决策</text>
+    <!-- Icon: brain gear -->
+    <path d="M0 -30 L-5 -25 L-5 -20 L-10 -20 L-10 -15 L-5 -15 L-5 -10 L0 -10 L5 -15 L10 -15 L10 -20 L5 -20 L5 -25 Z" fill="#fff" opacity="0.8" transform="translate(0, -2) scale(0.8)"/>
+  </g>
+
+  <!-- Act node (bottom) -->
+  <g transform="translate(300, 480)">
+    <circle cx="0" cy="0" r="55" fill="url(#actGrad)" filter="url(#glow2)"/>
+    <text x="0" y="-8" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Act</text>
+    <text x="0" y="12" text-anchor="middle" fill="#a7f3d0" font-family="system-ui, sans-serif" font-size="11">执行行动</text>
+    <!-- Icon: lightning -->
+    <path d="M5 -32 L-5 -22 L2 -22 L-5 -12 L8 -22 L0 -22 Z" fill="#fff"/>
+  </g>
+
+  <!-- Arrows connecting the loop -->
+  <!-- Observe to Think -->
+  <path d="M355 140 Q420 180 440 245" fill="none" stroke="#60a5fa" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="445,240 450,255 435,250" fill="#60a5fa"/>
+
+  <!-- Think to Act -->
+  <path d="M480 355 Q420 430 355 460" fill="none" stroke="#34d399" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="360,455 345,465 350,450" fill="#34d399"/>
+
+  <!-- Act to Observe -->
+  <path d="M245 460 Q180 430 155 355" fill="none" stroke="#a78bfa" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="150,360 155,345 165,360" fill="#a78bfa"/>
+
+  <!-- Observe back to center -->
+  <path d="M245 140 Q200 200 240 250" fill="none" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- Task input arrow -->
+  <g transform="translate(120, 180)">
+    <rect x="-50" y="-15" width="100" height="30" rx="6" fill="#f59e0b" opacity="0.9"/>
+    <text x="0" y="5" text-anchor="middle" fill="#0a1628" font-family="system-ui, sans-serif" font-size="11" font-weight="600">任务输入</text>
+    <path d="M55 0 L100 50" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5,3"/>
+  </g>
+
+  <!-- Result output arrow -->
+  <g transform="translate(480, 420)">
+    <path d="M-30 -20 L-30 -50" stroke="#10b981" stroke-width="2" stroke-dasharray="5,3"/>
+    <rect x="-80" y="-75" width="100" height="30" rx="6" fill="#10b981" opacity="0.9"/>
+    <text x="-30" y="-55" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-size="11" font-weight="600">结果输出</text>
+  </g>
+
+  <!-- Example flow text -->
+  <g transform="translate(300, 300)">
+    <text x="-180" y="-130" text-anchor="middle" fill="#a78bfa" font-family="system-ui, sans-serif" font-size="9">检查文件</text>
+    <text x="130" y="-60" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="9">规划步骤</text>
+    <text x="-180" y="130" text-anchor="middle" fill="#34d399" font-family="system-ui, sans-serif" font-size="9">执行工具</text>
+  </g>
+
+  <!-- Title -->
+  <text x="300" y="45" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-size="20" font-weight="700">Agent 的核心循环</text>
+  <text x="300" y="70" text-anchor="middle" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">持续循环直到任务完成</text>
+
+  <!-- Footer insight -->
+  <text x="300" y="580" text-anchor="middle" fill="#64748b" font-family="system-ui, sans-serif" font-size="10">Claude Code、Codex、Manus……所有 Agent 都跑这个循环</text>
+</svg>
