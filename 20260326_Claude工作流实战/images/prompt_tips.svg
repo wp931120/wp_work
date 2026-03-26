@@ -1,0 +1,48 @@
+<svg width="800" height="350" viewBox="0 0 800 350" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="tipBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2d3436;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e272e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="highlight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ffeaa7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fdcb6e;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="800" height="350" fill="url(#tipBg)" rx="16"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="45" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="white">🎯 Prompt 力：4 个关键细节</text>
+  
+  <!-- Tip 1 -->
+  <rect x="40" y="80" width="350" height="50" rx="8" fill="rgba(255,255,255,0.05)"/>
+  <text x="60" y="112" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#74b9ff">1️⃣ 防止 AI 编造</text>
+  <text x="175" y="112" font-family="monospace" font-size="12" fill="url(#highlight)">"If data is insufficient, say so"</text>
+  
+  <!-- Tip 2 -->
+  <rect x="410" y="80" width="350" height="50" rx="8" fill="rgba(255,255,255,0.05)"/>
+  <text x="430" y="112" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#a29bfe">2️⃣ 让 AI 说真话</text>
+  <text x="545" y="112" font-family="monospace" font-size="12" fill="url(#highlight)">"Be harsh. 别客气"</text>
+  
+  <!-- Tip 3 -->
+  <rect x="40" y="150" width="350" height="50" rx="8" fill="rgba(255,255,255,0.05)"/>
+  <text x="60" y="182" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#55efc4">3️⃣ 避免 AI 味</text>
+  <text x="165" y="182" font-family="monospace" font-size="12" fill="url(#highlight)">"Don't sound like ChatGPT"</text>
+  
+  <!-- Tip 4 -->
+  <rect x="410" y="150" width="350" height="50" rx="8" fill="rgba(255,255,255,0.05)"/>
+  <text x="430" y="182" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#fd79a8">4️⃣ 给足背景</text>
+  <text x="530" y="182" font-family="monospace" font-size="12" fill="url(#highlight)">"About me: [your context]"</text>
+  
+  <!-- 分隔线 -->
+  <line x1="100" y1="230" x2="700" y2="230" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  
+  <!-- 底部总结 -->
+  <text x="400" y="270" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="rgba(255,255,255,0.7)">这些细节决定了 AI 输出是"有用"还是"废话"</text>
+  
+  <!-- 强调框 -->
+  <rect x="200" y="290" width="400" height="40" rx="20" fill="rgba(116, 185, 255, 0.2)" stroke="#74b9ff" stroke-width="1"/>
+  <text x="400" y="316" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#74b9ff">Prompt 力 = 提好问题的工程化能力</text>
+</svg>

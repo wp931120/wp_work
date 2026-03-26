@@ -1,0 +1,71 @@
+<svg width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="card1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="card2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="card3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="800" height="500" fill="url(#bgGrad)"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="50" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="bold" fill="white">10 个 Claude 工作流全景图</text>
+  
+  <!-- 左列 - 内容创作类 -->
+  <rect x="40" y="80" width="220" height="180" rx="16" fill="url(#card1)" opacity="0.95" filter="url(#glow)"/>
+  <text x="150" y="115" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="bold" fill="white">📝 内容创作</text>
+  <text x="60" y="145" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="rgba(255,255,255,0.9)">• 调研神器 → 2h→15min</text>
+  <text x="60" y="170" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="rgba(255,255,255,0.9)">• 内容调研 → 4h→1.5h</text>
+  <text x="60" y="195" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="rgba(255,255,255,0.9)">• 内容再利用 → 2h→20min</text>
+  <text x="60" y="220" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="rgba(255,255,255,0.9)">• 邮件写作 → 30min→5min</text>
+  <text x="60" y="250" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="rgba(255,255,255,0.7)">省 5h 40min/周</text>
+  
+  <!-- 中列 - 技术分析类 -->
+  <rect x="290" y="80" width="220" height="180" rx="16" fill="url(#card2)" opacity="0.95" filter="url(#glow)"/>
+  <text x="400" y="115" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="bold" fill="white">🔧 技术分析</text>
+  <text x="310" y="145" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="rgba(255,255,255,0.9)">• GitHub 筛选 → 1.5h→20min</text>
+  <text x="310" y="170" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="rgba(255,255,255,0.9)">• 数据分析 → 2h→20min</text>
+  <text x="310" y="195" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="rgba(255,255,255,0.9)">• 代码审查 → 2h→15min</text>
+  <text x="310" y="220" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="rgba(255,255,255,0.9)">• 竞品分析 → 1h→15min</text>
+  <text x="310" y="250" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="rgba(255,255,255,0.7)">省 5h 20min/周</text>
+  
+  <!-- 右列 - 日常效率类 -->
+  <rect x="540" y="80" width="220" height="180" rx="16" fill="url(#card3)" opacity="0.95" filter="url(#glow)"/>
+  <text x="650" y="115" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="bold" fill="white">⚡ 日常效率</text>
+  <text x="560" y="145" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="rgba(255,255,255,0.9)">• 晨间简报 → 45min→5min</text>
+  <text x="560" y="170" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="rgba(255,255,255,0.9)">• 周度复盘 → 1h→30min</text>
+  <text x="560" y="195" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="rgba(255,255,255,0.9)">（最高 ROI 的工作流）</text>
+  <text x="560" y="250" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="rgba(255,255,255,0.7)">省 1h 10min/周</text>
+  
+  <!-- 底部核心公式 -->
+  <rect x="150" y="300" width="500" height="80" rx="16" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+  <text x="400" y="335" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="bold" fill="white">💡 核心公式</text>
+  <text x="400" y="365" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="rgba(255,255,255,0.8)">工作流 = 可复用的 Prompt 模板 = 稳定输出</text>
+  
+  <!-- 底部数据 -->
+  <text x="400" y="430" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="bold" fill="#51cf66">13 小时/周</text>
+  <text x="400" y="460" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#868e96">= 52 小时/月 = 每月多出一个工作周</text>
+  
+  <!-- 来源标注 -->
+  <text x="400" y="490" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#495057">数据来源: @zodchiii 两周实测追踪</text>
+</svg>
