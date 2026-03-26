@@ -1,0 +1,64 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f1e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a2e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="wrongGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#ee5a5a;stop-opacity:0.2" />
+    </linearGradient>
+    <linearGradient id="rightGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#51cf66;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#40c057;stop-opacity:0.2" />
+    </linearGradient>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="800" height="450" fill="url(#bgGrad2)" rx="16"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="40" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="white">Checklist 正确 vs 错误写法</text>
+  
+  <!-- 错误示例 -->
+  <rect x="40" y="70" width="350" height="180" rx="12" fill="url(#wrongGrad)" stroke="#ff6b6b" stroke-width="1"/>
+  <text x="60" y="100" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="bold" fill="#ff6b6b">❌ 错误写法</text>
+  
+  <text x="60" y="135" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="rgba(255,255,255,0.7)">问题 1：</text>
+  <text x="120" y="135" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#ff6b6b">"文案质量评分 1-10 分"</text>
+  
+  <text x="60" y="165" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="rgba(255,255,255,0.7)">问题 2：</text>
+  <text x="120" y="165" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#ff6b6b">"内容是否有吸引力？"</text>
+  
+  <text x="60" y="195" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="rgba(255,255,255,0.7)">问题 3：</text>
+  <text x="120" y="195" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#ff6b6b">"标题够不够好？"</text>
+  
+  <line x1="60" y1="215" x2="370" y2="215" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="60" y="240" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="rgba(255,255,255,0.5)">❌ 模糊、主观、每次评分不一致</text>
+  
+  <!-- 正确示例 -->
+  <rect x="410" y="70" width="350" height="180" rx="12" fill="url(#rightGrad)" stroke="#51cf66" stroke-width="1"/>
+  <text x="430" y="100" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="bold" fill="#51cf66">✓ 正确写法（Yes/No）</text>
+  
+  <text x="430" y="135" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="rgba(255,255,255,0.7)">问题 1：</text>
+  <text x="490" y="135" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#51cf66">"标题是否包含具体数字？"</text>
+  
+  <text x="430" y="165" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="rgba(255,255,255,0.7)">问题 2：</text>
+  <text x="490" y="165" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#51cf66">"是否没有使用 buzzword？"</text>
+  
+  <text x="430" y="195" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="rgba(255,255,255,0.7)">问题 3：</text>
+  <text x="490" y="195" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#51cf66">"CTA 是否使用了具体动词？"</text>
+  
+  <line x1="430" y1="215" x2="740" y2="215" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="430" y="240" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="rgba(255,255,255,0.5)">✓ 明确、客观、每次评分一致</text>
+  
+  <!-- 黄金法则 -->
+  <rect x="200" y="280" width="400" height="50" rx="25" fill="rgba(255,193,7,0.2)" stroke="#ffc107" stroke-width="1"/>
+  <text x="400" y="310" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#ffc107">💡 黄金法则：3-6 个 Yes/No 问题最佳</text>
+  
+  <!-- 底部示例 -->
+  <rect x="40" y="350" width="720" height="80" rx="12" fill="rgba(255,255,255,0.05)"/>
+  <text x="60" y="380" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="bold" fill="white">📝 落地页文案 Checklist 示例：</text>
+  <text x="60" y="405" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="rgba(255,255,255,0.7)">1. 标题是否包含具体数字或结果？  2. 是否没有使用"革命性""颠覆性"等 buzzword？</text>
+  <text x="60" y="420" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="rgba(255,255,255,0.7)">3. CTA 是否使用了具体动词短语？  4. 第一行是否指出了具体痛点？  5. 总字数是否在 150 字以内？</text>
+</svg>

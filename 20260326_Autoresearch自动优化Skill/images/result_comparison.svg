@@ -1,0 +1,59 @@
+<svg width="800" height="350" viewBox="0 0 800 350" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="beforeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ee5a5a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="afterGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#51cf66;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#40c057;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow2">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="800" height="350" fill="#f8f9fa"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="40" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#212529">Autoresearch 优化效果</text>
+  
+  <!-- 副标题 -->
+  <text x="400" y="65" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#868e96">落地页文案 Skill 通过率变化</text>
+  
+  <!-- Before -->
+  <rect x="100" y="100" width="220" height="180" rx="16" fill="white" filter="url(#shadow2)"/>
+  <text x="210" y="130" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#868e96">优化前</text>
+  <text x="210" y="190" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="56" font-weight="bold" fill="url(#beforeGrad)">56%</text>
+  <text x="210" y="220" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#868e96">基线分数</text>
+  
+  <!-- 问题列表 -->
+  <text x="130" y="250" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#ff6b6b">❌ 模糊标题</text>
+  <text x="130" y="268" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#ff6b6b">❌ Buzzword 满天飞</text>
+  
+  <!-- 箭头 -->
+  <path d="M340 190 L460 190" stroke="#495057" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="465,190 450,183 450,197" fill="#495057"/>
+  
+  <!-- 变化标注 -->
+  <rect x="360" y="140" width="80" height="30" rx="15" fill="#51cf66"/>
+  <text x="400" y="160" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="bold" fill="white">+36%</text>
+  
+  <!-- 4 rounds -->
+  <text x="400" y="205" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#868e96">4 轮优化</text>
+  
+  <!-- After -->
+  <rect x="480" y="100" width="220" height="180" rx="16" fill="white" filter="url(#shadow2)"/>
+  <text x="590" y="130" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#868e96">优化后</text>
+  <text x="590" y="190" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="56" font-weight="bold" fill="url(#afterGrad)">92%</text>
+  <text x="590" y="220" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#868e96">通过率</text>
+  
+  <!-- 改进列表 -->
+  <text x="510" y="250" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#51cf66">✓ 标题必须含数字</text>
+  <text x="510" y="268" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#51cf66">✓ 禁用 Buzzword 列表</text>
+  
+  <!-- 底部统计 -->
+  <rect x="150" y="300" width="500" height="40" rx="20" fill="rgba(81,207,102,0.1)"/>
+  <text x="400" y="326" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#51cf66">🎯 4 轮改动 → 3 个保留 → 1 个自动回退 → 零人工干预</text>
+</svg>
