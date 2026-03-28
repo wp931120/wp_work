@@ -1,0 +1,125 @@
+<svg width="100%" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="baselineGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#64748b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#475569;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="claudeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="sotaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="500" fill="url(#bgGrad)"/>
+
+  <!-- 标题 -->
+  <text x="400" y="40" text-anchor="middle" fill="#f1f5f9" font-size="22" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">
+    攻击成功率对比：Claudini vs 现有方法
+  </text>
+
+  <!-- 图例 -->
+  <g transform="translate(580, 70)">
+    <rect x="0" y="0" width="16" height="16" rx="3" fill="url(#baselineGrad)"/>
+    <text x="24" y="13" fill="#94a3b8" font-size="12" font-family="system-ui, sans-serif">现有方法</text>
+
+    <rect x="0" y="25" width="16" height="16" rx="3" fill="url(#claudeGrad)"/>
+    <text x="24" y="38" fill="#94a3b8" font-size="12" font-family="system-ui, sans-serif">Claude 中间版本</text>
+
+    <rect x="0" y="50" width="16" height="16" rx="3" fill="url(#sotaGrad)"/>
+    <text x="24" y="63" fill="#94a3b8" font-size="12" font-family="system-ui, sans-serif">Claude 最终版本</text>
+  </g>
+
+  <!-- 实验一：GPT-OSS-Safeguard-20B -->
+  <text x="200" y="100" text-anchor="middle" fill="#e2e8f0" font-size="14" font-weight="bold" font-family="system-ui, sans-serif">
+    GPT-OSS-Safeguard-20B
+  </text>
+
+  <!-- 现有方法 (≤10%) -->
+  <g transform="translate(60, 120)">
+    <rect x="0" y="0" width="60" height="30" rx="4" fill="url(#baselineGrad)" filter="url(#shadow)"/>
+    <text x="30" y="20" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold" font-family="system-ui, sans-serif">≤10%</text>
+    <text x="30" y="50" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="system-ui, sans-serif">GCG/I-GCG</text>
+  </g>
+
+  <g transform="translate(130, 120)">
+    <rect x="0" y="0" width="60" height="30" rx="4" fill="url(#baselineGrad)" filter="url(#shadow)"/>
+    <text x="30" y="20" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold" font-family="system-ui, sans-serif">≤10%</text>
+    <text x="30" y="50" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="system-ui, sans-serif">MAC/TAO</text>
+  </g>
+
+  <!-- Claude 方法 -->
+  <g transform="translate(210, 115)">
+    <rect x="0" y="0" width="60" height="50" rx="4" fill="url(#claudeGrad)" filter="url(#shadow)"/>
+    <text x="30" y="20" text-anchor="middle" fill="#fff" font-size="11" font-family="system-ui, sans-serif">v39</text>
+    <text x="30" y="38" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold" font-family="system-ui, sans-serif">~25%</text>
+  </g>
+
+  <g transform="translate(280, 110)">
+    <rect x="0" y="0" width="60" height="70" rx="4" fill="url(#claudeGrad)" filter="url(#shadow)"/>
+    <text x="30" y="20" text-anchor="middle" fill="#fff" font-size="11" font-family="system-ui, sans-serif">v53</text>
+    <text x="30" y="38" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold" font-family="system-ui, sans-serif">~35%</text>
+  </g>
+
+  <g transform="translate(350, 105)">
+    <rect x="0" y="0" width="60" height="80" rx="4" fill="url(#sotaGrad)" filter="url(#shadow)"/>
+    <text x="30" y="20" text-anchor="middle" fill="#fff" font-size="11" font-family="system-ui, sans-serif">v82</text>
+    <text x="30" y="38" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold" font-family="system-ui, sans-serif">40%</text>
+  </g>
+
+  <!-- 提升箭头 -->
+  <text x="225" y="215" text-anchor="middle" fill="#10b981" font-size="14" font-weight="bold" font-family="system-ui, sans-serif">
+    4x 提升
+  </text>
+
+  <!-- 分隔线 -->
+  <line x1="50" y1="250" x2="750" y2="250" stroke="#334155" stroke-width="1" stroke-dasharray="5,5"/>
+
+  <!-- 实验二：Meta-SecAlign-70B -->
+  <text x="200" y="280" text-anchor="middle" fill="#e2e8f0" font-size="14" font-weight="bold" font-family="system-ui, sans-serif">
+    Meta-SecAlign-70B（直接迁移）
+  </text>
+
+  <!-- 现有方法 + Optuna -->
+  <g transform="translate(60, 300)">
+    <rect x="0" y="0" width="100" height="112" rx="4" fill="url(#baselineGrad)" filter="url(#shadow)"/>
+    <text x="50" y="20" text-anchor="middle" fill="#fff" font-size="11" font-family="system-ui, sans-serif">GCG+Optuna</text>
+    <text x="50" y="45" text-anchor="middle" fill="#fff" font-size="18" font-weight="bold" font-family="system-ui, sans-serif">56%</text>
+  </g>
+
+  <g transform="translate(170, 300)">
+    <rect x="0" y="0" width="100" height="112" rx="4" fill="url(#baselineGrad)" filter="url(#shadow)"/>
+    <text x="50" y="20" text-anchor="middle" fill="#fff" font-size="11" font-family="system-ui, sans-serif">TAO+Optuna</text>
+    <text x="50" y="45" text-anchor="middle" fill="#fff" font-size="18" font-weight="bold" font-family="system-ui, sans-serif">56%</text>
+  </g>
+
+  <!-- Claude 方法 -->
+  <g transform="translate(290, 295)">
+    <rect x="0" y="0" width="100" height="130" rx="4" fill="url(#claudeGrad)" filter="url(#shadow)"/>
+    <text x="50" y="20" text-anchor="middle" fill="#fff" font-size="11" font-family="system-ui, sans-serif">Claude v63</text>
+    <text x="50" y="50" text-anchor="middle" fill="#fff" font-size="18" font-weight="bold" font-family="system-ui, sans-serif">85%</text>
+  </g>
+
+  <g transform="translate(410, 290)">
+    <rect x="0" y="0" width="100" height="150" rx="4" fill="url(#sotaGrad)" filter="url(#shadow)"/>
+    <text x="50" y="20" text-anchor="middle" fill="#fff" font-size="11" font-family="system-ui, sans-serif">Claude v82</text>
+    <text x="50" y="50" text-anchor="middle" fill="#fff" font-size="24" font-weight="bold" font-family="system-ui, sans-serif">100%</text>
+    <text x="50" y="75" text-anchor="middle" fill="#d1fae5" font-size="10" font-family="system-ui, sans-serif">🎯 完全攻破</text>
+  </g>
+
+  <!-- 说明文字 -->
+  <text x="300" y="475" text-anchor="middle" fill="#64748b" font-size="12" font-family="system-ui, sans-serif">
+    注：Meta-SecAlign-70B 攻击是在其他模型上发现的算法直接迁移的结果
+  </text>
+</svg>
