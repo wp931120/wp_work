@@ -1,0 +1,124 @@
+<svg width="100%" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- 渐变定义 -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="blockerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e74c3c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c0392b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="frictionGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f39c12;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e67e22;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="optGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#27ae60;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e8449;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="centerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2980b9;stop-opacity:1" />
+    </linearGradient>
+    <!-- 阴影 -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="900" height="600" fill="url(#bgGrad)"/>
+  
+  <!-- 标题 -->
+  <text x="450" y="45" text-anchor="middle" fill="#ecf0f1" font-size="28" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">
+    Agent 友好 CLI 七大设计原则
+  </text>
+  
+  <!-- 严重性标签说明 -->
+  <g transform="translate(50, 70)">
+    <rect x="0" y="0" width="120" height="24" rx="4" fill="url(#blockerGrad)"/>
+    <text x="60" y="16" text-anchor="middle" fill="#fff" font-size="12" font-family="system-ui, sans-serif">🚫 Blocker</text>
+    
+    <rect x="140" y="0" width="120" height="24" rx="4" fill="url(#frictionGrad)"/>
+    <text x="200" y="16" text-anchor="middle" fill="#fff" font-size="12" font-family="system-ui, sans-serif">⚠️ Friction</text>
+    
+    <rect x="280" y="0" width="140" height="24" rx="4" fill="url(#optGrad)"/>
+    <text x="350" y="16" text-anchor="middle" fill="#fff" font-size="12" font-family="system-ui, sans-serif">⚡ Optimization</text>
+  </g>
+  
+  <!-- 中心概念 -->
+  <g transform="translate(450, 300)">
+    <circle cx="0" cy="0" r="60" fill="url(#centerGrad)" filter="url(#shadow)"/>
+    <text x="0" y="-10" text-anchor="middle" fill="#fff" font-size="16" font-weight="bold" font-family="system-ui, sans-serif">Agent</text>
+    <text x="0" y="12" text-anchor="middle" fill="#fff" font-size="14" font-family="system-ui, sans-serif">友好 CLI</text>
+  </g>
+  
+  <!-- 原则 1 - Blocker -->
+  <g transform="translate(150, 150)">
+    <rect x="0" y="0" width="160" height="70" rx="8" fill="url(#blockerGrad)" filter="url(#shadow)"/>
+    <text x="80" y="20" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold" font-family="system-ui, sans-serif">原则 1</text>
+    <text x="80" y="38" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold" font-family="system-ui, sans-serif">默认非交互</text>
+    <text x="80" y="55" text-anchor="middle" fill="#fff" font-size="10" font-family="system-ui, sans-serif">--no-input, --yes</text>
+  </g>
+  <line x1="310" y1="185" x2="390" y2="270" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5,3"/>
+  
+  <!-- 原则 2 - Blocker -->
+  <g transform="translate(590, 150)">
+    <rect x="0" y="0" width="160" height="70" rx="8" fill="url(#blockerGrad)" filter="url(#shadow)"/>
+    <text x="80" y="20" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold" font-family="system-ui, sans-serif">原则 2</text>
+    <text x="80" y="38" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold" font-family="system-ui, sans-serif">结构化输出</text>
+    <text x="80" y="55" text-anchor="middle" fill="#fff" font-size="10" font-family="system-ui, sans-serif">--json, 退出码规范</text>
+  </g>
+  <line x1="590" y1="185" x2="510" y2="270" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5,3"/>
+  
+  <!-- 原则 3 - Blocker/Friction -->
+  <g transform="translate(150, 420)">
+    <rect x="0" y="0" width="160" height="70" rx="8" fill="url(#frictionGrad)" filter="url(#shadow)"/>
+    <text x="80" y="20" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold" font-family="system-ui, sans-serif">原则 3</text>
+    <text x="80" y="38" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold" font-family="system-ui, sans-serif">错误可操作</text>
+    <text x="80" y="55" text-anchor="middle" fill="#fff" font-size="10" font-family="system-ui, sans-serif">命名问题 + 用法 + 示例</text>
+  </g>
+  <line x1="310" y1="455" x2="390" y2="330" stroke="#f39c12" stroke-width="2" stroke-dasharray="5,3"/>
+  
+  <!-- 原则 4 - Friction -->
+  <g transform="translate(590, 420)">
+    <rect x="0" y="0" width="160" height="70" rx="8" fill="url(#frictionGrad)" filter="url(#shadow)"/>
+    <text x="80" y="20" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold" font-family="system-ui, sans-serif">原则 4</text>
+    <text x="80" y="38" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold" font-family="system-ui, sans-serif">安全重试</text>
+    <text x="80" y="55" text-anchor="middle" fill="#fff" font-size="10" font-family="system-ui, sans-serif">幂等设计 + --dry-run</text>
+  </g>
+  <line x1="590" y1="455" x2="510" y2="330" stroke="#f39c12" stroke-width="2" stroke-dasharray="5,3"/>
+  
+  <!-- 原则 5 - Optimization -->
+  <g transform="translate(30, 285)">
+    <rect x="0" y="0" width="160" height="70" rx="8" fill="url(#optGrad)" filter="url(#shadow)"/>
+    <text x="80" y="20" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold" font-family="system-ui, sans-serif">原则 5</text>
+    <text x="80" y="38" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold" font-family="system-ui, sans-serif">渐进式帮助</text>
+    <text x="80" y="55" text-anchor="middle" fill="#fff" font-size="10" font-family="system-ui, sans-serif">帮助 + 子命令 + 示例</text>
+  </g>
+  <line x1="190" y1="320" x2="390" y2="300" stroke="#27ae60" stroke-width="2" stroke-dasharray="5,3"/>
+  
+  <!-- 原则 6 - Optimization -->
+  <g transform="translate(710, 285)">
+    <rect x="0" y="0" width="160" height="70" rx="8" fill="url(#optGrad)" filter="url(#shadow)"/>
+    <text x="80" y="20" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold" font-family="system-ui, sans-serif">原则 6</text>
+    <text x="80" y="38" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold" font-family="system-ui, sans-serif">可组合结构</text>
+    <text x="80" y="55" text-anchor="middle" fill="#fff" font-size="10" font-family="system-ui, sans-serif">stdin/stdout + 命名一致</text>
+  </g>
+  <line x1="710" y1="320" x2="510" y2="300" stroke="#27ae60" stroke-width="2" stroke-dasharray="5,3"/>
+  
+  <!-- 原则 7 - Optimization -->
+  <g transform="translate(350, 500)">
+    <rect x="0" y="0" width="200" height="70" rx="8" fill="url(#optGrad)" filter="url(#shadow)"/>
+    <text x="100" y="20" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold" font-family="system-ui, sans-serif">原则 7</text>
+    <text x="100" y="38" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold" font-family="system-ui, sans-serif">有界高信噪比响应</text>
+    <text x="100" y="55" text-anchor="middle" fill="#fff" font-size="10" font-family="system-ui, sans-serif">--limit + 过滤 + 分页</text>
+  </g>
+  <line x1="450" y1="500" x2="450" y2="360" stroke="#27ae60" stroke-width="2" stroke-dasharray="5,3"/>
+  
+  <!-- 底部总结 -->
+  <text x="450" y="580" text-anchor="middle" fill="#bdc3c7" font-size="14" font-family="system-ui, sans-serif">
+    Agent 友好 = 人类友好 | 好的设计不区分用户是谁
+  </text>
+</svg>
